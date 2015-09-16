@@ -1,5 +1,8 @@
 Tufte CSS
 =========
+
+Adapted from: https://github.com/daveliepmann/tufte-css
+
 >Simplicity, to me, has always been the essence of good taste. <br/>
 > -- [Cary Grant](http://www.gq.com/style/wear-it-now/201304/cary-grant-on-style?printable=true)
 

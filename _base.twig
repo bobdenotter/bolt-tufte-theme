@@ -6,9 +6,9 @@
           {{ app.config.get('general/sitename') }}
       {% if record.title is not defined and app.config.get('general/payoff') %} | {{ app.config.get('general/payoff') }}{% endif %}
   </title>
+  {# <link href='https://fonts.googleapis.com/css?family=Cardo:400,400italic,700' rel='stylesheet' type='text/css'> #}
   <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Cardo:400,700,400i">
   <link rel="stylesheet" href="{{ paths.theme }}css/tufte.css"/>
-  <link rel="stylesheet" href="{{ paths.theme }}css/latex.css"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style type="text/css">
    img { mix-blend-mode: multiply; }
@@ -206,5 +206,9 @@
     {% endblock content %}
 
   </article>
+
+  <script src="{{ paths.theme }}javascript/tufte.js"></script>
+  <script>smartquotes()</script>
+
 </body>
 </html>
