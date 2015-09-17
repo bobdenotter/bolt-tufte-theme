@@ -5,9 +5,7 @@
 
     <h1>{{ record.title }}</h1>
 
-    <p class="subtitle">{% block subtitle %}subtitle{% endblock %}</p>
-
-    {{ record.teaser }}
+    <p class="subtitle">{{ record.teaser|striptags('<b><em><i><strong><a><u>') }}</p>
 
     {{ record.body }}
 

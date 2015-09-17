@@ -6,15 +6,16 @@
           {{ app.config.get('general/sitename') }}
       {% if record.title is not defined and app.config.get('general/payoff') %} | {{ app.config.get('general/payoff') }}{% endif %}
   </title>
-  {# <link href='https://fonts.googleapis.com/css?family=Cardo:400,400italic,700' rel='stylesheet' type='text/css'> #}
-  <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Cardo:400,700,400i">
+  {% if app.config.get('theme/body-font') != 'serif' %}
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+  {% endif %}
   <link rel="stylesheet" href="{{ paths.theme }}css/tufte.css"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style type="text/css">
    img { mix-blend-mode: multiply; }
   </style>
 </head>
-<body>
+<body {% if app.config.get('theme/body-font') != 'serif' %}class="sans"{% endif %}>
   <header>
     {% if app.request.get('_route') == 'homepage' %}
       <h1>{{ app.config.get('general/sitename') }}</h1>
@@ -28,6 +29,20 @@
     {% block content %}
     <section>
       <p>Tufte CSS provides fine tools to style web articles using the ideas demonstrated by Edward Tufte’s books and handouts. Tufte’s style is known for its simplicity, extensive use of sidenotes, tight integration of graphics with text, and carefully chosen typography.</p>
+
+<code><pre>{% verbatim %}
+{% block content %}
+
+    &lt;h1>{{ record.title }}&lt;/h1>
+
+    &lt;p class="subtitle">{{ record.teaser|striptags('&lt;b>&lt;em>&lt;i>&lt;strong>&lt;a>&lt;u>') }}&lt;/p>
+
+    {{ record.body }}
+
+{% endblock %}
+
+{% endverbatim %}</pre></code>
+
       <p>The idea is essentially cribbed wholesale from <a href="https://tufte-latex.github.io/tufte-latex/">Tufte-<span class="latex">L<sup>a</sup>T<sub>e</sub>X</span></a> and <a href="http://rmarkdown.rstudio.com/tufte_handout_format.html">R Markdown’s Tufte Handout format</a><label for="sn-tufte-handout" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-tufte-handout" class="margin-toggle"/>.
         <span class="sidenote">
           This page was in fact originally an adaptation of the <a href="http://rmarkdown.rstudio.com/examples/tufte-handout.pdf">Tufte Handout Example</a> PDF.

@@ -1,13 +1,40 @@
 
 // Colors
 $color-accent     : rgb(27, 26, 168);
-$color-body       : rgb(252, 252, 248);
+$color-body       : rgb(250, 250, 245);
 $color-text-body  : rgb(60, 60, 60);
 $color-text-light : rgb(184, 186, 188);
 $color-ui-light   : lighten($color-text-light, 14%);
+
 // Font stacks
-$font-sans-serif  : "Helvetica Neue", Helvetica, sans-serif;
+$font-sans-serif  : "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
 $font-serif       : Cardo, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+
+// Variables
+$base-font-size: 15px;
+
+@font-face {
+    font-family: 'Cardo';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Cardo'), url(../fonts/400.woff) format('woff')
+}
+
+
+@font-face {
+    font-family: 'Cardo';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Cardo-Bold'), url(../fonts/700.woff) format('woff')
+}
+
+
+@font-face {
+    font-family: 'Cardo';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Cardo-Italic'), url(../fonts/400i.woff) format('woff')
+}
 
 
 article a {
@@ -42,8 +69,9 @@ article a {
 }
 
 
+
 html {
-  font-size: 15px;
+  font-size: $base-font-size;
   -moz-font-feature-settings: "liga=1, dlig=1";
   -moz-font-feature-settings: "liga", "dlig"; /* EDIT: new syntax for FF 15+ */
   -ms-font-feature-settings: "liga", "dlig";
@@ -51,6 +79,7 @@ html {
   -webkit-font-feature-settings: "liga", "dlig";
   font-feature-settings: "liga", "dlig";
 }
+
 body {
   width: 87.5%;
   margin-left: auto;
@@ -62,6 +91,7 @@ body {
   max-width: 1400px;
   counter-reset: sidenote-counter;
 }
+
 h1 {
   font-weight: 400;
   margin-top: 4rem;
@@ -69,6 +99,7 @@ h1 {
   font-size: 3.2rem;
   line-height: 1;
 }
+
 h2 {
   font-style: italic;
   font-weight: 400;
@@ -77,6 +108,7 @@ h2 {
   font-size: 2.2rem;
   line-height: 1;
 }
+
 h3 {
   font-style: italic;
   font-weight: 400;
@@ -85,14 +117,24 @@ h3 {
   margin-bottom: 0;
   line-height: 1;
 }
+
 p.subtitle {
   font-style: italic;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   display: block;
-  line-height: 1;
+  line-height: 2.2rem;
 }
+
+
+p {
+  font-family: $font-serif;
+}
+
+
+
+
 table {
   width: 98%;
   clear: left;
@@ -107,18 +149,22 @@ table {
   -moz-font-feature-settings: 'tnum';
   -ms-font-feature-settings: 'tnum';
 }
+
 thead th {
   border-bottom: 1px solid #AAAAAA;
   font-weight: 400;
   border-collapse: separate;
   border-spacing: 5px 5px;
 }
+
 td.text {
   text-align: left;
 }
+
 span.table-label {
   padding-top: 8px;
 }
+
  /* to maintain height relative to table header row */
 table.booktabs {
   width: auto;
@@ -127,27 +173,33 @@ table.booktabs {
   border-top: 2px solid #333333;
   border-bottom: 2px solid #333333;
 }
+
 .booktabs th {
   border-bottom: 1px solid #333333;
   padding: 0.65ex 0.5em 0.4ex 0.5em;
   font-weight: normal;
   text-align: center;
 }
+
 .booktabs th.cmid {
   border-bottom: 1px solid #666666;
 }
+
 .booktabs th.nocmid {
   border-bottom: none;
 }
+
 .booktabs tbody tr:first-child td {
   padding-top: 0.65ex;
 }
+
  /* add space between thead row and tbody */
 .booktabs td {
   padding-left: 0.5em;
   padding-right: 0.5em;
   text-align: left;
 }
+
 .booktabs caption {
   font-size: 90%;
   text-align: left;
@@ -157,56 +209,85 @@ table.booktabs {
   margin-top: 1ex;
   caption-side: top;
 }
+
 .booktabs tbody tr td.l {
   text-align: left !important;
 }
+
 .booktabs tbody tr td.c {
   text-align: center !important;
 }
+
 .booktabs tbody tr td.r {
   text-align: right !important;
 }
+
 article {
   position: relative;
   padding: 5rem 0rem;
 }
+
 section {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+
 p, ol, ul {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
+  line-height: 1.9rem;
 }
+
 p {
-  line-height: 2rem;
   margin-top: 1.4rem;
   margin-bottom: 1.4rem;
   padding-right: 0;
   vertical-align: baseline;
 }
-blockquote p {
-  font-size: 1.1rem;
-  width: 50%;
+
+ul li {
+  list-style: disc;
 }
-blockquote footer {
-  width: 50%;
-  text-align: right;
+
+blockquote {
+
+  border-left: 5px solid #CCC;
+  font-size: 1.3rem;
+  line-height: 1.9rem;
+  font-style: italic;
+  margin-left: 0;
+  padding: 0.7rem 1.4rem;
+
+  p {
+    font-size: 1.1rem;
+    width: 50%;
+  }
+
+  footer {
+    width: 50%;
+    text-align: right;
+
+  }
+
 }
+
 ul {
   width: 45%;
   -webkit-padding-start: 5%;
   -webkit-padding-end: 5%;
   list-style-type: none;
 }
+
 li {
   padding: 0.5rem 0;
 }
+
 figure {
   max-width: 55%;
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
   margin-bottom: 3em;
 }
+
 figcaption {
   float: right;
   clear: right;
@@ -218,13 +299,16 @@ figcaption {
   vertical-align: baseline;
   position: relative;
 }
+
 figure.fullwidth figcaption {
   margin-right: 24%;
 }
 
+
 img {
   max-width: 100%;
 }
+
 .sidenote, .marginnote {
   float: right;
   clear: right;
@@ -237,6 +321,7 @@ img {
   vertical-align: baseline;
   position: relative;
 }
+
 .table-caption {
   float: right;
   clear: right;
@@ -247,21 +332,25 @@ img {
   font-size: 1.0rem;
   line-height: 1.6;
 }
+
 .sidenote-number {
   counter-increment: sidenote-counter;
 }
+
 .sidenote-number:after, .sidenote:before {
   content: counter(sidenote-counter) " ";
   position: relative;
   vertical-align: baseline;
   color: #f00000;
 }
+
 .sidenote-number:after {
   content: counter(sidenote-counter);
   font-size: 0.9rem;
   top: -0.5rem;
   left: 0.1rem;
 }
+
 .sidenote:before {
   content: counter(sidenote-counter) ". ";
   position: absolute;
@@ -272,64 +361,91 @@ img {
   -ms-transform: translateX(-100%) translateX(-0.25rem);
   transform: translateX(-100%) translateX(-0.25rem);
 }
+
 p, footer, div.table-wrapper {
   width: 55%;
 }
+
 @media screen and (max-width: 760px) {
+
   p, footer {
     width: 90%;
   }
+
   pre.code {
     width: 87.5%;
   }
+
   ul {
     width: 85%;
   }
+
   figure {
     max-width: 90%;
   }
+
   figcaption, figure.fullwidth figcaption {
     margin-right: 0%;
   }
+
   blockquote p, blockquote footer {
     width: 90%;
   }
+
 }
-.sans {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-}
+
+
+
 .code {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-size: 1.125rem;
   line-height: 1.6;
 }
+
 h1 .code, h2 .code, h3 .code {
   font-size: 0.80em;
 }
+
 .marginnote .code, .sidenote .code {
   font-size: 1rem;
 }
+
 pre.code {
   width: 52.5%;
   padding-left: 2.5%;
   overflow-x: scroll;
 }
+
 .fullwidth {
   max-width: 90%;
 }
+
 span.newthought {
   font-variant: small-caps;
   font-size: 1.2em;
 }
+
 input.margin-toggle {
   display: none;
 }
+
 label.sidenote-number {
   display: inline;
 }
+
 label.margin-toggle:not(.sidenote-number) {
   display: none;
 }
+
+
+body.sans {
+  p {
+    font-family: $font-sans-serif;
+    font-size: 1.2rem;
+  }
+}
+
+
 @media (max-width: 760px) {
   label.margin-toggle:not(.sidenote-number) {
     display: inline;
@@ -373,3 +489,4 @@ label.margin-toggle:not(.sidenote-number) {
     width: 100%;
   }
 }
+
