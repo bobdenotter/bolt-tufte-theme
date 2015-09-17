@@ -3,10 +3,25 @@
 
 {% block content %}
 
+    <section>
     <h1>{{ record.title }}</h1>
 
-    <p class="subtitle">{{ record.teaser|striptags('<b><em><i><strong><a><u>') }}</p>
+    {% if record.image!="" %}
+    <p>
+        <span class='sideimage'>
+            <span class="imageholder">
+                <a href="{{ image(record.image) }}">
+                    <img src="{{ thumbnail(record.image, 400, 260) }}">
+                </a>
+            </span>
+        </span>
+    </p>
+    {% endif %}
+
+    <p class="subtitle">{{ record.teaser|striptags('<b><em><i><strong><a><u>')|raw }}</p>
 
     {{ record.body }}
+
+    </section>
 
 {% endblock %}

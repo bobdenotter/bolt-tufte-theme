@@ -13,28 +13,6 @@ $font-serif       : Cardo, Palatino, "Palatino Linotype", "Palatino LT STD", "Bo
 // Variables
 $base-font-size: 15px;
 
-@font-face {
-    font-family: 'Cardo';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Cardo'), url(../fonts/400.woff) format('woff')
-}
-
-
-@font-face {
-    font-family: 'Cardo';
-    font-style: normal;
-    font-weight: 700;
-    src: local('Cardo-Bold'), url(../fonts/700.woff) format('woff')
-}
-
-
-@font-face {
-    font-family: 'Cardo';
-    font-style: italic;
-    font-weight: 400;
-    src: local('Cardo-Italic'), url(../fonts/400i.woff) format('woff')
-}
 
 
 article a {
@@ -44,7 +22,7 @@ article a {
   background-image: linear-gradient(rgba($color-accent, 0.25) 0%, $color-accent 100%);
   background-repeat: repeat-x;
   background-size: 1px 1px;
-  background-position: 0 93%;
+  background-position: 0 86%;
   // Clear descendors from underline
   text-shadow: 2px 0 white, 1px 0 white, -1px 0 white, -2px 0 white;
   &:hover {
@@ -72,8 +50,6 @@ article a {
 
 html {
   font-size: $base-font-size;
-  -moz-font-feature-settings: "liga=1, dlig=1";
-  -moz-font-feature-settings: "liga", "dlig"; /* EDIT: new syntax for FF 15+ */
   -ms-font-feature-settings: "liga", "dlig";
   -o-font-feature-settings: "liga", "dlig";
   -webkit-font-feature-settings: "liga", "dlig";
@@ -257,13 +233,11 @@ blockquote {
   margin-left: 0;
   padding: 0.7rem 1.4rem;
 
-  p {
-    font-size: 1.1rem;
-    width: 50%;
-  }
+
 
   footer {
-    width: 50%;
+    font-size: 1.1rem;
+    font-style: normal;
     text-align: right;
 
   }
@@ -309,7 +283,7 @@ img {
   max-width: 100%;
 }
 
-.sidenote, .marginnote {
+.sidenote, .marginnote, .sideimage {
   float: right;
   clear: right;
   margin-right: -60%;
@@ -368,8 +342,13 @@ p, footer, div.table-wrapper {
 
 @media screen and (max-width: 760px) {
 
+  body {
+    padding-left: 0;
+    width: 94%;
+  }
+
   p, footer {
-    width: 90%;
+    width: 98%;
   }
 
   pre.code {
@@ -394,12 +373,28 @@ p, footer, div.table-wrapper {
 
 }
 
+.imageholder {
+  padding: 3px;
+  background-color: #FFF;
+  border: 1px solid #E2E2E2;
+  display: block;
 
+  a {
+    background: none;
+  }
+
+  img {
+    display: block;
+  }
+
+}
 
 .code {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-size: 1.125rem;
   line-height: 1.6;
+  background-color: #E8E8E8;
+  padding: 2px;
 }
 
 h1 .code, h2 .code, h3 .code {
@@ -453,6 +448,12 @@ body.sans {
   .sidenote, .marginnote {
     display: none;
   }
+
+  .sideimage {
+    float: none;
+    clear: both;
+  }
+
   .margin-toggle:checked + .sidenote, .margin-toggle:checked + .marginnote {
     display: block;
     float: left;
