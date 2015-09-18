@@ -11,10 +11,9 @@
   {% endif %}
   <link rel="stylesheet" href="https://fonts.kx.nu/Cardo.css">
   <link rel="stylesheet" href="{{ paths.theme }}css/tufte.css"/>
+  <link rel="stylesheet" href="{{ paths.theme }}css/magnific-popup.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style type="text/css">
-   img { mix-blend-mode: multiply; }
-  </style>
 </head>
 <body {% if app.config.get('theme/body-font') != 'serif' %}class="sans"{% endif %}>
   <header>
@@ -223,8 +222,10 @@
 
   </article>
 
+
+
   <script src="{{ paths.theme }}javascript/tufte.js"></script>
-  <script>smartquotes()</script>
+
 
 </body>
 </html>
