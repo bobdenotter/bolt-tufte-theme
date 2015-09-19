@@ -1,3 +1,5 @@
+@import "settings";
+@import 'magnific-popup/main.scss';
 
 // Colors
 $color-accent     : rgb(27, 26, 168);
@@ -10,46 +12,17 @@ $color-ui-light   : lighten($color-text-light, 14%);
 $font-sans-serif  : "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
 $font-serif       : Cardo, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
 
-// Variables
-$base-font-size: 15px;
-
-
-
-article a {
-  color: $color-accent;
-  text-decoration: none;
-  // Underline via gradient background
-  background-image: linear-gradient(rgba($color-accent, 0.25) 0%, $color-accent 100%);
-  background-repeat: repeat-x;
-  background-size: 1px 1px;
-  background-position: 0 86%;
-  // Clear descendors from underline
-  text-shadow: 2px 0 white, 1px 0 white, -1px 0 white, -2px 0 white;
-  &:hover {
-    color: darken($color-accent, 11%);
-    background-image: linear-gradient(to bottom, darken($color-accent, 6%) 0%, darken($color-accent, 6%) 100%);
-  }
-  // Style selected links (or else text-shadow makes it look crazy ugly)
-  // Pseudo selectors must go separately, or they break each other
-  &,
-  > * {
-    &::selection {
-      background-color: lighten($color-accent, 25%);
-      color: $color-text-body;
-      text-shadow: none;
-    }
-    &::-moz-selection {
-      background-color: lighten($color-accent, 25%);
-      color: $color-text-body;
-      text-shadow: none;
-    }
-  }
-}
-
+$grid-breakpoint-xxs-max: 37.49em !default;
+$grid-breakpoint-xs-min: 37.5em !default;
+$grid-breakpoint-xs-max: 47.99em !default;
+$grid-breakpoint-s-min: 48em !default;
+$grid-breakpoint-s-max: 61.99em !default;
+$grid-breakpoint-m-min: 62em !default;
+$grid-breakpoint-m-max: 74.99em !default;
+$grid-breakpoint-l-min: 75em !default;
 
 
 html {
-  font-size: $base-font-size;
   -ms-font-feature-settings: "liga", "dlig";
   -o-font-feature-settings: "liga", "dlig";
   -webkit-font-feature-settings: "liga", "dlig";
@@ -57,14 +30,9 @@ html {
 }
 
 body {
-  width: 87.5%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 12.5%;
   font-family: $font-serif;
   background-color: $color-body;
   color: $color-text-body;
-  max-width: 1400px;
   counter-reset: sidenote-counter;
 }
 
@@ -109,8 +77,6 @@ p {
 }
 
 
-
-
 table {
   width: 98%;
   clear: left;
@@ -141,66 +107,67 @@ span.table-label {
   padding-top: 8px;
 }
 
- /* to maintain height relative to table header row */
+/* to maintain height relative to table header row */
 table.booktabs {
   width: auto;
   margin: 0 auto;
   border-spacing: 0px;
   border-top: 2px solid #333333;
   border-bottom: 2px solid #333333;
-}
 
-.booktabs th {
-  border-bottom: 1px solid #333333;
-  padding: 0.65ex 0.5em 0.4ex 0.5em;
-  font-weight: normal;
-  text-align: center;
-}
+  th {
+    border-bottom: 1px solid #333333;
+    padding: 0.65ex 0.5em 0.4ex 0.5em;
+    font-weight: normal;
+    text-align: center;
+  }
 
-.booktabs th.cmid {
-  border-bottom: 1px solid #666666;
-}
+  th.cmid {
+    border-bottom: 1px solid #666666;
+  }
 
-.booktabs th.nocmid {
-  border-bottom: none;
-}
+  th.nocmid {
+    border-bottom: none;
+  }
 
-.booktabs tbody tr:first-child td {
-  padding-top: 0.65ex;
-}
+  tbody tr:first-child td {
+    padding-top: 0.65ex;
+  }
 
- /* add space between thead row and tbody */
-.booktabs td {
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  text-align: left;
-}
+   /* add space between thead row and tbody */
+  td {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    text-align: left;
+  }
 
-.booktabs caption {
-  font-size: 90%;
-  text-align: left;
-  width: auto;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 1ex;
-  caption-side: top;
-}
+  caption {
+    font-size: 90%;
+    text-align: left;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1ex;
+    caption-side: top;
+  }
 
-.booktabs tbody tr td.l {
-  text-align: left !important;
-}
+  tbody tr td.l {
+    text-align: left !important;
+  }
 
-.booktabs tbody tr td.c {
-  text-align: center !important;
-}
+  tbody tr td.c {
+    text-align: center !important;
+  }
 
-.booktabs tbody tr td.r {
-  text-align: right !important;
+  tbody tr td.r {
+    text-align: right !important;
+  }
+
 }
 
 article {
-  position: relative;
-  padding: 5rem 0rem;
+
+  padding-right: 2rem;
 
   figure {
     max-width: 55%;
@@ -226,6 +193,40 @@ article {
   }
 
 }
+
+
+article a,
+aside a {
+    color: $color-accent;
+    text-decoration: none;
+    // Underline via gradient background
+    background-image: linear-gradient(rgba($color-accent, 0.25) 0%, $color-accent 100%);
+    background-repeat: repeat-x;
+    background-size: 1px 1px;
+    background-position: 0 86%;
+    // Clear descendors from underline
+    text-shadow: 2px 0 white, 1px 0 white, -1px 0 white, -2px 0 white;
+    &:hover {
+      color: darken($color-accent, 11%);
+      background-image: linear-gradient(to bottom, darken($color-accent, 6%) 0%, darken($color-accent, 6%) 100%);
+    }
+    // Style selected links (or else text-shadow makes it look crazy ugly)
+    // Pseudo selectors must go separately, or they break each other
+    &,
+    > * {
+      &::selection {
+        background-color: lighten($color-accent, 25%);
+        color: $color-text-body;
+        text-shadow: none;
+      }
+      &::-moz-selection {
+        background-color: lighten($color-accent, 25%);
+        color: $color-text-body;
+        text-shadow: none;
+      }
+    }
+  }
+
 
 section {
   padding-top: 1rem;
@@ -257,8 +258,6 @@ blockquote {
   margin-left: 0;
   padding: 0.7rem 1.4rem;
 
-
-
   footer {
     font-size: 1.1rem;
     font-style: normal;
@@ -268,29 +267,16 @@ blockquote {
 
 }
 
-ul {
-  width: 45%;
-  -webkit-padding-start: 5%;
-  -webkit-padding-end: 5%;
-  list-style-type: none;
-}
 
 li {
-  padding: 0.5rem 0;
+  padding: 0.25rem 0;
 }
 
-
-
-
-
-img {
-  max-width: 100%;
-}
 
 .sidenote, .marginnote, .sideimage {
   float: right;
   clear: right;
-  margin-right: -60%;
+  margin-right: calc(-50% - 3rem);
   width: 50%;
   margin-top: 0;
   margin-bottom: 0;
@@ -298,12 +284,18 @@ img {
   line-height: 1.6;
   vertical-align: baseline;
   position: relative;
+
+  @media (max-width: #{$grid-breakpoint-s-min}) {
+    float: none;
+    margin-right: 0;
+  }
+
 }
 
 .table-caption {
   float: right;
   clear: right;
-  margin-right: -60%;
+  margin-right: calc(-50% - 3rem);
   width: 50%;
   margin-top: 0;
   margin-bottom: 0;
@@ -340,42 +332,6 @@ img {
   transform: translateX(-100%) translateX(-0.25rem);
 }
 
-p, footer, div.table-wrapper {
-  width: 55%;
-}
-
-@media screen and (max-width: 760px) {
-
-  body {
-    padding-left: 0;
-    width: 94%;
-  }
-
-  p, footer {
-    width: 98%;
-  }
-
-  pre.code {
-    width: 87.5%;
-  }
-
-  ul {
-    width: 85%;
-  }
-
-  figure {
-    max-width: 90%;
-  }
-
-  figcaption, figure.fullwidth figcaption {
-    margin-right: 0%;
-  }
-
-  blockquote p, blockquote footer {
-    width: 90%;
-  }
-
-}
 
 .imageholder {
   padding: 3px;
@@ -410,8 +366,6 @@ h1 .code, h2 .code, h3 .code {
 }
 
 pre.code {
-  width: 52.5%;
-  padding-left: 2.5%;
   overflow-x: scroll;
 }
 
@@ -436,62 +390,10 @@ label.margin-toggle:not(.sidenote-number) {
   display: none;
 }
 
-
 body.sans {
   p {
     font-family: $font-sans-serif;
     font-size: 1.2rem;
-  }
-}
-
-
-@media (max-width: 760px) {
-  label.margin-toggle:not(.sidenote-number) {
-    display: inline;
-  }
-  .sidenote, .marginnote {
-    display: none;
-  }
-
-  .sideimage {
-    float: none;
-    clear: both;
-  }
-
-  .margin-toggle:checked + .sidenote, .margin-toggle:checked + .marginnote {
-    display: block;
-    float: left;
-    left: 1rem;
-    clear: both;
-    width: 95%;
-    margin: 1rem 2.5%;
-    vertical-align: baseline;
-    position: relative;
-  }
-  label {
-    cursor: pointer;
-  }
-  pre.code {
-    width: 90%;
-    padding: 0;
-  }
-  .table-caption {
-    display: block;
-    float: right;
-    clear: both;
-    width: 98%;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    margin-left: 1%;
-    margin-right: 1%;
-    vertical-align: baseline;
-    position: relative;
-  }
-  table, table.booktabs {
-    width: 85%;
-  }
-  img {
-    width: 100%;
   }
 }
 

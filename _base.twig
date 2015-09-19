@@ -10,23 +10,37 @@
     <link href='https://fonts.kx.nu/OpenSans.css' rel='stylesheet' type='text/css'>
   {% endif %}
   <link rel="stylesheet" href="https://fonts.kx.nu/Cardo.css">
+  <link rel="stylesheet" href="{{ paths.theme }}css/responsive.min.css"/>
   <link rel="stylesheet" href="{{ paths.theme }}css/tufte.css"/>
-  <link rel="stylesheet" href="{{ paths.theme }}css/magnific-popup.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body {% if app.config.get('theme/body-font') != 'serif' %}class="sans"{% endif %}>
-  <header>
-    {% if app.request.get('_route') == 'homepage' %}
-      <h1>{{ app.config.get('general/sitename') }}</h1>
-    {% else %}
-      <p class="sitename">{{ app.config.get('general/sitename') }}</p>
-    {% endif %}
 
-  </header>
 
-  <article>
-    {% block content %}
+
+<div class="container">
+<div class="row">
+
+    <header class="col-xxs-12">
+      {% if app.request.get('_route') == 'homepage' %}
+        <h1>{{ app.config.get('general/sitename') }}</h1>
+      {% else %}
+        <p class="sitename"><a href="{{ paths.root }}">{{ app.config.get('general/sitename') }}</a></p>
+      {% endif %}
+
+    </header>
+
+    <article class="col-xxs-12 col-s-8">
+        {% block content %}
+
+        {% endblock %}
+
+
+
+<hr>
+
+
     <section>
       <p>Tufte CSS provides fine tools to style web articles using the ideas demonstrated by Edward Tufte’s books and handouts. Tufte’s style is known for its simplicity, extensive use of sidenotes, tight integration of graphics with text, and carefully chosen typography.</p>
 
@@ -218,9 +232,22 @@
       <p>Although I don’t follow all of its prescriptions, I like <a href="http://practicaltypography.com/">Butterick’s Practical Typography</a> for its thoughts on designing text for the web.</p>
       <p> Bret Victor’s has published some vintage computer science talks and papers, like <a href="http://worrydream.com/EnlightenedImaginationForCitizens/">this one by Alan Kay</a>, that have a Tufte-CSS feel that I quite like.</p>
     </section>
-    {% endblock content %}
 
-  </article>
+
+
+    </article>
+    <div class="col-xxs-12 col-s-4">
+
+        <p>
+Tufte CSS attempts only to cover some basic “Tuftean” ideas, providing one possible set of defaults, using cascading stylesheets. Therefore many of the more interesting techniques he points to are far outside the scope of this project. Graphing data, interactive data visualizations, and non-traditional text formats are fantastic tools that aren’t covered by Tufte CSS. Here is a short and incomplete overview of tools that can help accomplish a few Tufte-like techniques.
+
+        </p>
+    </div>
+
+</div>
+</div>
+
+
 
 
 

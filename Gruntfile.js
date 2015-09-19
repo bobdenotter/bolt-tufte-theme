@@ -5,6 +5,7 @@ module.exports = function(grunt) {
         sass: {
             dist: {
                 options: {
+                    includePaths: ['scss/'],
                     outputStyle: 'compressed'
                 },
                 files: {
@@ -20,11 +21,24 @@ module.exports = function(grunt) {
                 files: 'scss/**/*.scss',
                 tasks: ['sass']
             }
+        },
+
+        copy: {
+          main: {
+            files: [
+                {expand: true, src: ['bower_components/responsive/build/responsive.min.css'], dest: 'css/', flatten: true, filter: 'isFile'},
+                {expand: true, src: ['bower_components/jquery/dist/jquery.js'], dest: 'javascript/', flatten: true, filter: 'isFile'},
+                {expand: true, src: ['bower_components/magnific-popup/src/css/main.scss'], dest: 'scss/magnific-popup', flatten: true},
+                // {expand: true, src: ['bower_components/magnific-popup/dist/jquery.magnific-popup.min.js'], dest: 'javascript', flatten: true},
+            ]
+          }
         }
+
     });
 
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     grunt.registerTask('build', ['sass']);
     grunt.registerTask('default', ['build','watch']);

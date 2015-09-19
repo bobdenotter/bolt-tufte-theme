@@ -7,7 +7,6 @@
     <h1>{{ record.title }}</h1>
 
     {% if record.image!="" %}
-    <p>
         <span class='sideimage'>
             <span class="imageholder">
                 <a href="{{ image(record.image) }}">
@@ -15,10 +14,20 @@
                 </a>
             </span>
         </span>
-    </p>
     {% endif %}
 
     <p class="subtitle">{{ record.teaser|striptags('<b><em><i><strong><a><u>')|raw }}</p>
+
+
+    <span class="imageholder">
+        <a href="{{ image(record.image) }}">
+            <img src="{{ thumbnail(record.image, 800, 360) }}">
+        </a>
+    </span>
+
+    <span class="sidenote">
+      This page was in fact originally an adaptation of the <a href="http://rmarkdown.rstudio.com/examples/tufte-handout.pdf">Tufte Handout Example</a> PDF.
+    </span>
 
     {{ record.body }}
 
