@@ -1,1 +1,31 @@
 {% extends '_base.twig' %}
+
+
+{% block content %}
+
+    {% setcontent records = "entries/latest/6" allowpaging %}
+    {% for record in records %}
+
+        {% if record.image!="" %}
+        <span class="sideimage imageholder">
+            <a href="{{ image(record.image) }}">
+                <img src="{{ thumbnail(record.image, 400, 260) }}">
+            </a>
+        </span>
+        {% endif %}
+
+        <h2><a href="{{ record.link }}">{{ record.title }}</a></h2>
+
+        {% include '_recordfooter.twig' with {'compact': true } %}
+
+
+        <p>{{ record.excerpt(220) }}</p>
+
+
+        <hr>
+
+    {% endfor %}
+
+    {{ pager() }}
+
+{% endblock %}

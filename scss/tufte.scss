@@ -349,6 +349,17 @@ li {
 
 }
 
+
+p.meta {
+  font-size: 1rem;
+  color: #555;
+
+  a {
+    background: none;
+  }
+
+}
+
 .code {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
   font-size: 1.125rem;
