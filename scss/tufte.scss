@@ -36,6 +36,10 @@ body {
   counter-reset: sidenote-counter;
 }
 
+header {
+  height: 150px;
+}
+
 h1 {
   font-weight: 400;
   margin-bottom: 1.5rem;
@@ -81,6 +85,9 @@ p.meta {
 
   a {
     background: none;
+    &:hover {
+      background: none;
+    }
   }
 
 }

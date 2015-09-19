@@ -6,7 +6,7 @@
     {% setcontent records = "entries/latest/6" allowpaging %}
     {% for record in records %}
 
-        {% if record.image!="" %}
+        {% if record.image!="" and not loop.first %}
         <span class="sideimage imageholder">
             <a href="{{ image(record.image) }}">
                 <img src="{{ thumbnail(record.image, 400, 260) }}">
@@ -14,13 +14,22 @@
         </span>
         {% endif %}
 
-        <h2><a href="{{ record.link }}">{{ record.title }}</a></h2>
+        <h2>{{ record.title }}</h2>
 
         {% include '_recordfooter.twig' with {'compact': true } %}
+
+        {% if record.image!="" and loop.first %}
+        <span class="imageholder">
+            <a href="{{ image(record.image) }}">
+                <img src="{{ thumbnail(record.image, 800, 360) }}">
+            </a>
+        </span>
+        {% endif %}
 
 
         <p>{{ record.teaser|default(record.excerpt(320)) }}</p>
 
+        <p><a href="{{ record.link }}">Continue reading &raquo;</a></p>
 
         <hr>
 

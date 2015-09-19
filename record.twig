@@ -7,13 +7,11 @@
     <h1>{{ record.title }}</h1>
 
     {% if record.image!="" %}
-        <span class='sideimage'>
-            <span class="imageholder">
-                <a href="{{ image(record.image) }}">
-                    <img src="{{ thumbnail(record.image, 400, 260) }}">
-                </a>
-            </span>
-        </span>
+    <span class="sideimage imageholder">
+        <a href="{{ image(record.image) }}">
+            <img src="{{ thumbnail(record.image, 400, 260) }}">
+        </a>
+    </span>
     {% endif %}
 
     <p class="subtitle">{{ record.teaser|striptags('<b><em><i><strong><a><u>')|raw }}</p>
