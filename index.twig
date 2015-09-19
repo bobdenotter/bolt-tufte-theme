@@ -19,7 +19,7 @@
         {% include '_recordfooter.twig' with {'compact': true } %}
 
 
-        <p>{{ record.excerpt(220) }}</p>
+        <p>{{ record.teaser|default(record.excerpt(320)) }}</p>
 
 
         <hr>
