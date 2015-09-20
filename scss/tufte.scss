@@ -1,5 +1,6 @@
 @import "settings";
 @import 'magnific-popup/main.scss';
+@import 'slicknav.scss';
 
 // Colors
 $color-accent     : rgb(27, 26, 168);
@@ -27,6 +28,9 @@ html {
   -o-font-feature-settings: "liga", "dlig";
   -webkit-font-feature-settings: "liga", "dlig";
   font-feature-settings: "liga", "dlig";
+  @media (max-width: #{$grid-breakpoint-l-min}) {
+    font-size: 14px;
+  }
 }
 
 body {
@@ -35,6 +39,15 @@ body {
   color: $color-text-body;
   counter-reset: sidenote-counter;
 }
+
+div.container {
+  max-width: 1140px;
+  width: calc(100% - 8rem);
+  @media (max-width: #{$grid-breakpoint-xs-min}) {
+    width: calc(100% - 2rem);
+  }
+}
+
 
 header {
   height: 150px;
@@ -211,7 +224,6 @@ article {
 
 }
 
-
 article a,
 aside a {
     color: $color-accent;
@@ -302,7 +314,7 @@ li {
   vertical-align: baseline;
   position: relative;
 
-  @media (max-width: #{$grid-breakpoint-s-min}) {
+  @media (max-width: #{$grid-breakpoint-m-min}) {
     float: none;
     margin-right: 0;
   }
@@ -415,3 +427,19 @@ body.sans {
   }
 }
 
+
+/* Slicknav tweaks */
+.slicknav_menu {
+  display:none;
+}
+
+@media screen and (max-width: 40em) {
+  /* #menu is the original menu */
+  .#menu {
+    display:none;
+  }
+
+  .slicknav_menu {
+    display:block;
+  }
+}

@@ -23,6 +23,14 @@
 <div class="row">
 
     <header class="col-xxs-12">
+
+<ul id="menu">
+  <li><a href="#">item 1</a></li>
+  <li><a href="#">item 2</a></li>
+  <li><a href="#">item 3</a></li>
+  <li><a href="#">item 4</a></li>
+</ul>
+
       {% if app.request.get('_route') == 'homepage' %}
         <h1>{{ app.config.get('general/sitename') }}</h1>
       {% else %}
@@ -30,13 +38,13 @@
       {% endif %}
     </header>
 
-    <article class="col-xxs-12 col-s-8">
+    <article class="col-xxs-12 col-m-8">
         {% block content %}
 
         {% endblock %}
     </article>
 
-    <div class="col-xxs-12 col-s-4">
+    <div class="col-xxs-12 col-m-4">
 
         <p>
 Tufte CSS attempts only to cover some basic “Tuftean” ideas, providing one possible set of defaults, using cascading stylesheets. Therefore many of the more interesting techniques he points to are far outside the scope of this project. Graphing data, interactive data visualizations, and non-traditional text formats are fantastic tools that aren’t covered by Tufte CSS. Here is a short and incomplete overview of tools that can help accomplish a few Tufte-like techniques.

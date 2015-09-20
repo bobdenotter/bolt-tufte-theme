@@ -5,8 +5,8 @@ module.exports = function(grunt) {
         sass: {
             dist: {
                 options: {
-                    includePaths: ['scss/'],
-                    outputStyle: 'compressed'
+                    includePaths: ['scss/', 'bower_components/slicknav/scss'],
+                    outputStyle: 'nested'
                 },
                 files: {
                     'css/tufte.css': 'scss/tufte.scss'
