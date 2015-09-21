@@ -826,13 +826,66 @@ body.sans p {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
   font-size: 1.2rem; }
 
+nav#mainnav {
+  border-bottom: 1px solid #dedec3;
+  background: #e7e7d3;
+  min-height: 3rem; }
+
+/* The Main manu itself.. */
+#mainmenu {
+  display: block;
+  float: right;
+  margin-top: 0.2rem; }
+  #mainmenu ul {
+    fxloat: right;
+    margin: 0;
+    padding: 0; }
+  #mainmenu ul a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    line-height: 32px;
+    padding: 0 15px; }
+  #mainmenu ul li {
+    position: relative;
+    list-style: none !important;
+    float: left;
+    margin: 0;
+    padding: 0; }
+  #mainmenu ul li.current-menu-item {
+    background: #ddd; }
+  #mainmenu ul li:hover {
+    background: #f6f6f6; }
+  #mainmenu ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    padding: 0; }
+  #mainmenu ul ul li {
+    float: none;
+    width: 200px; }
+  #mainmenu ul ul a {
+    line-height: 120%;
+    padding: 10px 15px; }
+  #mainmenu ul ul ul {
+    top: 0;
+    left: 100%; }
+  #mainmenu ul li:hover > ul {
+    display: block; }
+
 /* Slicknav tweaks */
 .slicknav_menu {
-  display: none; }
+  display: none;
+  margin: 0;
+  padding: 0;
+  background-color: transparent; }
 
 @media screen and (max-width: 40em) {
   /* #menu is the original menu */
-  .js #menu {
+  #mainmenu {
     display: none; }
-  .js .slicknav_menu {
-    display: block; } }
+  .slicknav_menu {
+    display: inline-block;
+    float: right; } }

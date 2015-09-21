@@ -4,7 +4,7 @@ $(document).ready(function() {
 
     $('.imageholder a').magnificPopup({type:'image'});
 
-    $('#menu').slicknav();
+    $('#mainmenu').slicknav();
 
 });
 

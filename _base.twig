@@ -17,19 +17,19 @@
 </head>
 <body {% if app.config.get('theme/body-font') != 'serif' %}class="sans"{% endif %}>
 
-
+<nav id='mainnav'>
+&nbsp;
+{{ menu() }}
+</nav>
 
 <div class="container">
 <div class="row">
 
+
+
     <header class="col-xxs-12">
 
-<ul id="menu">
-  <li><a href="#">item 1</a></li>
-  <li><a href="#">item 2</a></li>
-  <li><a href="#">item 3</a></li>
-  <li><a href="#">item 4</a></li>
-</ul>
+
 
       {% if app.request.get('_route') == 'homepage' %}
         <h1>{{ app.config.get('general/sitename') }}</h1>

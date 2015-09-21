@@ -428,18 +428,101 @@ body.sans {
 }
 
 
+nav#mainnav {
+  border-bottom: 1px solid darken($color-body, 15);
+  background: darken($color-body, 10);
+  min-height: 3rem;
+
+}
+
+
+
+/* The Main manu itself.. */
+#mainmenu {
+
+  display: block;
+  float: right;
+  margin-top: 0.2rem;
+
+  ul {
+    fxloat: right;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    line-height: 32px;
+    padding: 0 15px;
+  }
+
+  ul li {
+    position: relative;
+    list-style: none !important;
+
+    float: left;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul li.current-menu-item {
+    background:#ddd
+  }
+
+  ul li:hover {
+    background:#f6f6f6
+  }
+
+  ul ul {
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    background:#fff;
+    padding:0
+  }
+
+  ul ul li {
+    float:none;
+    width:200px
+  }
+
+  ul ul a {
+    line-height:120%;
+    padding:10px 15px
+  }
+
+  ul ul ul {
+    top:0;
+    left:100%
+  }
+
+  ul li:hover > ul {
+    display:block
+  }
+
+}
+
 /* Slicknav tweaks */
+
 .slicknav_menu {
-  display:none;
+  display: none;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
 }
 
 @media screen and (max-width: 40em) {
   /* #menu is the original menu */
-  .#menu {
-    display:none;
+  #mainmenu {
+    display: none;
   }
 
   .slicknav_menu {
-    display:block;
+    display: inline-block;
+    float: right;
   }
+
 }
