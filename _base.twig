@@ -18,8 +18,12 @@
 <body {% if app.config.get('theme/body-font') != 'serif' %}class="sans"{% endif %}>
 
 <nav id='mainnav'>
-&nbsp;
-{{ menu() }}
+  <div class="container">
+    {% if app.request.get('_route') != 'homepage' %}
+      <span class="sitename"><a href="{{ paths.root }}">{{ app.config.get('general/sitename') }}</a></span>
+    {% endif %}
+    {{ menu() }}
+  </div>
 </nav>
 
 <div class="container">
@@ -29,12 +33,8 @@
 
     <header class="col-xxs-12">
 
-
-
       {% if app.request.get('_route') == 'homepage' %}
         <h1>{{ app.config.get('general/sitename') }}</h1>
-      {% else %}
-        <p class="sitename"><a href="{{ paths.root }}">{{ app.config.get('general/sitename') }}</a></p>
       {% endif %}
     </header>
 

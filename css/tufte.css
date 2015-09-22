@@ -830,6 +830,11 @@ nav#mainnav {
   border-bottom: 1px solid #dedec3;
   background: #e7e7d3;
   min-height: 3rem; }
+  nav#mainnav span.sitename {
+    font-size: 1.4rem;
+    line-height: 3rem; }
+  nav#mainnav a {
+    text-decoration: none; }
 
 /* The Main manu itself.. */
 #mainmenu {
@@ -844,11 +849,11 @@ nav#mainnav {
     display: block;
     color: #333;
     text-decoration: none;
-    line-height: 32px;
+    line-height: 3rem;
     padding: 0 15px; }
   #mainmenu ul li {
     position: relative;
-    list-style: none !important;
+    list-style: none;
     float: left;
     margin: 0;
     padding: 0; }
@@ -866,9 +871,6 @@ nav#mainnav {
   #mainmenu ul ul li {
     float: none;
     width: 200px; }
-  #mainmenu ul ul a {
-    line-height: 120%;
-    padding: 10px 15px; }
   #mainmenu ul ul ul {
     top: 0;
     left: 100%; }

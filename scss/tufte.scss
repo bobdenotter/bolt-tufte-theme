@@ -433,6 +433,15 @@ nav#mainnav {
   background: darken($color-body, 10);
   min-height: 3rem;
 
+  span.sitename {
+    font-size: 1.4rem;
+    line-height: 3rem;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
 }
 
 
@@ -454,14 +463,13 @@ nav#mainnav {
     display: block;
     color: #333;
     text-decoration: none;
-    line-height: 32px;
-    padding: 0 15px;
+    line-height: 3rem;
+    padding: 0 15px
   }
 
   ul li {
     position: relative;
-    list-style: none !important;
-
+    list-style: none;
     float: left;
     margin: 0;
     padding: 0;
@@ -487,11 +495,6 @@ nav#mainnav {
   ul ul li {
     float:none;
     width:200px
-  }
-
-  ul ul a {
-    line-height:120%;
-    padding:10px 15px
   }
 
   ul ul ul {
