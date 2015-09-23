@@ -51,6 +51,11 @@ div.container {
 
 header {
   height: 150px;
+
+  h1 {
+    margin-top: 5rem;
+  }
+
 }
 
 h1 {
@@ -224,8 +229,8 @@ article {
 
 }
 
-article a,
-aside a {
+article p a,
+aside p a {
     color: $color-accent;
     text-decoration: none;
     // Underline via gradient background
@@ -301,6 +306,9 @@ li {
   padding: 0.25rem 0;
 }
 
+samp {
+  background-color: transparent;
+}
 
 .sidenote, .marginnote, .sideimage {
   float: right;

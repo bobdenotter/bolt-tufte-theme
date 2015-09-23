@@ -544,6 +544,8 @@ div.container {
 
 header {
   height: 150px; }
+  header h1 {
+    margin-top: 5rem; }
 
 h1 {
   font-weight: 400;
@@ -669,8 +671,8 @@ article {
   article figure.fullwidth figcaption {
     margin-right: 24%; }
 
-article a,
-aside a {
+article p a,
+aside p a {
   color: #1b1aa8;
   text-decoration: none;
   background-image: linear-gradient(rgba(27, 26, 168, 0.25) 0%, #1b1aa8 100%);
@@ -678,21 +680,21 @@ aside a {
   background-size: 1px 1px;
   background-position: 0 86%;
   text-shadow: 2px 0 white, 1px 0 white, -1px 0 white, -2px 0 white; }
-  article a:hover,
-  aside a:hover {
+  article p a:hover,
+  aside p a:hover {
     color: #131277;
     background-image: linear-gradient(to bottom, #17168e 0%, #17168e 100%); }
-  article a::selection,
-  article a > *::selection,
-  aside a::selection,
-  aside a > *::selection {
+  article p a::selection,
+  article p a > *::selection,
+  aside p a::selection,
+  aside p a > *::selection {
     background-color: #5d5ce6;
     color: #3c3c3c;
     text-shadow: none; }
-  article a::-moz-selection,
-  article a > *::-moz-selection,
-  aside a::-moz-selection,
-  aside a > *::-moz-selection {
+  article p a::-moz-selection,
+  article p a > *::-moz-selection,
+  aside p a::-moz-selection,
+  aside p a > *::-moz-selection {
     background-color: #5d5ce6;
     color: #3c3c3c;
     text-shadow: none; }
@@ -728,6 +730,9 @@ blockquote {
 
 li {
   padding: 0.25rem 0; }
+
+samp {
+  background-color: transparent; }
 
 .sidenote, .marginnote, .sideimage {
   float: right;

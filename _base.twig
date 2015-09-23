@@ -2,9 +2,13 @@
 <head>
   <meta charset="utf-8"/>
   <title>
-      {% if record.title is defined %}{{ record.title|striptags }} | {% endif %}
-          {{ app.config.get('general/sitename') }}
-      {% if record.title is not defined and app.config.get('general/payoff') %} | {{ app.config.get('general/payoff') }}{% endif %}
+      {% if Seo is defined %}
+        {{ seo.title() }}
+      {% else %}
+        {% if record.title is defined %}{{ record.title|striptags }} | {% endif %}
+            {{ app.config.get('general/sitename') }}
+        {% if record.title is not defined and app.config.get('general/payoff') %} | {{ app.config.get('general/payoff') }}{% endif %}
+      {% endif %}
   </title>
   {% if app.config.get('theme/body-font') != 'serif' %}
     <link href='https://fonts.kx.nu/OpenSans.css' rel='stylesheet' type='text/css'>
@@ -12,7 +16,6 @@
   <link rel="stylesheet" href="https://fonts.kx.nu/Cardo.css">
   <link rel="stylesheet" href="{{ paths.theme }}css/responsive.min.css"/>
   <link rel="stylesheet" href="{{ paths.theme }}css/tufte.css"/>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body {% if app.config.get('theme/body-font') != 'serif' %}class="sans"{% endif %}>
@@ -27,32 +30,32 @@
 </nav>
 
 <div class="container">
-<div class="row">
+  <div class="row">
 
+      <header class="col-xxs-12">
+          <h1>
+            {% block title %}
+              {{ app.config.get('general/sitename') }}
+            {% endblock %}
+          </h1>
+      </header>
 
+      <article class="col-xxs-12 col-m-8">
+        {{ dump(app.config.get('theme')) }}
+          {% block content %}
 
-    <header class="col-xxs-12">
+          {% endblock %}
+      </article>
 
-      {% if app.request.get('_route') == 'homepage' %}
-        <h1>{{ app.config.get('general/sitename') }}</h1>
-      {% endif %}
-    </header>
+      <div class="col-xxs-12 col-m-4">
 
-    <article class="col-xxs-12 col-m-8">
-        {% block content %}
+          <p>
+  Tufte CSS attempts only to cover some basic “Tuftean” ideas, providing one possible set of defaults, using cascading stylesheets. Therefore many of the more interesting techniques he points to are far outside the scope of this project. Graphing data, interactive data visualizations, and non-traditional text formats are fantastic tools that aren’t covered by Tufte CSS. Here is a short and incomplete overview of tools that can help accomplish a few Tufte-like techniques.
 
-        {% endblock %}
-    </article>
+          </p>
+      </div>
 
-    <div class="col-xxs-12 col-m-4">
-
-        <p>
-Tufte CSS attempts only to cover some basic “Tuftean” ideas, providing one possible set of defaults, using cascading stylesheets. Therefore many of the more interesting techniques he points to are far outside the scope of this project. Graphing data, interactive data visualizations, and non-traditional text formats are fantastic tools that aren’t covered by Tufte CSS. Here is a short and incomplete overview of tools that can help accomplish a few Tufte-like techniques.
-
-        </p>
-    </div>
-
-</div>
+  </div>
 </div>
 
 
