@@ -6,6 +6,10 @@ $(document).ready(function() {
 
     $('#mainmenu').slicknav();
 
+    $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+    });
+
 });
 
 /*!

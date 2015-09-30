@@ -808,8 +808,13 @@ h1 .code, h2 .code, h3 .code {
 .marginnote .code, .sidenote .code {
   font-size: 1rem; }
 
-pre.code {
-  overflow-x: scroll; }
+pre {
+  background-color: #f4f3ec; }
+  @media (min-width: 61.99em) {
+    pre {
+      margin-right: -300px; } }
+  pre .code {
+    overflow-x: scroll; }
 
 .fullwidth {
   max-width: 90%; }

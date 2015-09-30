@@ -1,14 +1,15 @@
 {
   "name": "bolt-tufte-theme",
+  "title": "A Theme for Bolt, based on Edward Tufte's distinct style.",
   "version": "0.1.0",
+  "license": "MIT",
+  "repository": "https://github.com/bobdenotter/bolt-tufte-theme",
   "devDependencies": {
     "node-sass": "^3.3.2",
     "grunt": "~0.4.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-sass": "^1.1.0-beta",
     "grunt-contrib-copy": "^0.8.1"
-  },
-  "dependencies": {
-    "highlight.js": "^8.8.0"
   }
 }
+
