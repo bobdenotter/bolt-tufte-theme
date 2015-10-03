@@ -26,6 +26,7 @@
     {% if app.request.get('_route') != 'homepage' %}
       <span class="sitename"><a href="{{ paths.root }}">{{ app.config.get('general/sitename') }}</a></span>
     {% endif %}
+    {% block navbartitle %}{% endblock %}
     {{ menu() }}
   </div>
 </nav>
@@ -42,7 +43,7 @@
       </header>
 
       <article class="col-xxs-12 col-m-8">
-        {{ dump(app.config.get('theme')) }}
+
           {% block content %}
 
           {% endblock %}

@@ -1,6 +1,10 @@
 {% extends '_base.twig' %}
 
 
+{% block navbartitle %}
+    {{ record.title }}
+{% endblock %}
+
 {% block title %}
     {{ record.title }}
 {% endblock %}
@@ -31,6 +35,9 @@
     </span>
 
     {{ record.body }}
+
+    {{ dump(app.config.get('theme')) }}
+
 
     {% include '_recordfooter.twig' %}
 

@@ -812,7 +812,7 @@ pre {
   background-color: #f4f3ec; }
   @media (min-width: 61.99em) {
     pre {
-      margin-right: -300px; } }
+      margin-right: -260px; } }
   pre .code {
     overflow-x: scroll; }
 
@@ -838,8 +838,10 @@ body.sans p {
 
 nav#mainnav {
   border-bottom: 1px solid #dedec3;
-  background: #e7e7d3;
-  min-height: 3rem; }
+  background: rgba(231, 231, 211, 0.85);
+  min-height: 3rem;
+  position: fixed;
+  width: 100%; }
   nav#mainnav span.sitename {
     font-size: 1.4rem;
     line-height: 3rem; }

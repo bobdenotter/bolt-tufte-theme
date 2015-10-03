@@ -447,8 +447,10 @@ body.sans {
 
 nav#mainnav {
   border-bottom: 1px solid darken($color-body, 15);
-  background: darken($color-body, 10);
+  background: transparentize(darken($color-body, 10), 0.15);
   min-height: 3rem;
+  position: fixed;
+  width: 100%;
 
   span.sitename {
     font-size: 1.4rem;
