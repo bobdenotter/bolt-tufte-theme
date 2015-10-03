@@ -23,10 +23,16 @@
 
 <nav id='mainnav'>
   <div class="container">
-    {% if app.request.get('_route') != 'homepage' %}
-      <span class="sitename"><a href="{{ paths.root }}">{{ app.config.get('general/sitename') }}</a></span>
-    {% endif %}
-    {% block navbartitle %}{% endblock %}
+    <span class="sitename">
+      {% if app.request.get('_route') != 'homepage' %}
+        <a href="{{ paths.root }}">{{ app.config.get('general/sitename') }}</a>
+      {% endif %}
+    </span>
+    <span class="pagename">
+      {% block pagename %}
+          <a href="{{ paths.root }}">{{ app.config.get('general/sitename') }}</a>
+      {% endblock %}
+    </span>
     {{ menu() }}
   </div>
 </nav>

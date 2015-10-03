@@ -1,8 +1,8 @@
 {% extends '_base.twig' %}
 
 
-{% block navbartitle %}
-    {{ record.title }}
+{% block pagename %}
+    <a href="{{ record.link }}">{{ record.title }}</a>
 {% endblock %}
 
 {% block title %}
