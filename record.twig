@@ -1,10 +1,17 @@
 {% extends '_base.twig' %}
 
 
+{% block pagename %}
+    <a href="{{ record.link }}">{{ record.title }}</a>
+{% endblock %}
+
+{% block title %}
+    {{ record.title }}
+{% endblock %}
+
 {% block content %}
 
     <section>
-    <h1>{{ record.title }}</h1>
 
     {% if record.image!="" %}
     <span class="sideimage imageholder">
@@ -28,6 +35,9 @@
     </span>
 
     {{ record.body }}
+
+    {{ dump(app.config.get('theme')) }}
+
 
     {% include '_recordfooter.twig' %}
 

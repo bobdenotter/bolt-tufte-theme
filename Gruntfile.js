@@ -5,7 +5,11 @@ module.exports = function(grunt) {
         sass: {
             dist: {
                 options: {
-                    includePaths: ['scss/', 'bower_components/slicknav/scss'],
+                    includePaths: [
+                        'scss/',
+                        'bower_components/slicknav/scss',
+                        'bower_components/highlightjs/styles'
+                    ],
                     outputStyle: 'nested'
                 },
                 files: {
@@ -27,8 +31,13 @@ module.exports = function(grunt) {
           main: {
             files: [
                 {expand: true, src: ['bower_components/responsive/build/responsive.min.css'], dest: 'css/', flatten: true, filter: 'isFile'},
-                {expand: true, src: ['bower_components/jquery/dist/jquery.js'], dest: 'javascript/', flatten: true, filter: 'isFile'},
+
                 {expand: true, src: ['bower_components/magnific-popup/src/css/main.scss'], dest: 'scss/magnific-popup', flatten: true},
+
+                {expand: true, src: ['bower_components/jquery/dist/jquery.js'], dest: 'javascript/', flatten: true, filter: 'isFile'},
+                {expand: true, src: ['bower_components/highlightjs/highlight.pack.min.js'], dest: 'javascript/', flatten: true, filter: 'isFile'},
+                {expand: true, src: ['bower_components/highlightjs/styles/atelier-estuary.light.css'], dest: 'css/', flatten: true, filter: 'isFile'},
+
                 // {expand: true, src: ['bower_components/magnific-popup/dist/jquery.magnific-popup.min.js'], dest: 'javascript', flatten: true},
             ]
           }

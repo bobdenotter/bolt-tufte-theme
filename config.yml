@@ -8,6 +8,10 @@ body-font: serif
 
 foo: bar
 
+# Add jQuery to the rendered HTML, whether or not it's added by an extension.
+add_jquery: true
+
+
 # setting the header image. The default images in this theme all came from Pexels: http://pexels.com
 headerimage:
     - agriculture-field-grain-1585.jpg
@@ -36,10 +40,3 @@ templatefields:
             label: Section 2
         image:
             type: image
-
-# There can be defined the templates for the template chooser
-#templateselect:
-#    templates:
-#        record:
-#            name: 'Template for Records'
-#            filename: 'record.twig'
