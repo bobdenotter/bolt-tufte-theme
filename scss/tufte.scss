@@ -3,7 +3,7 @@
 @import 'slicknav.scss';
 
 // Colors
-$color-accent     : rgb(27, 26, 168);
+$color-accent     : rgb(0, 20, 160);
 $color-body       : rgb(249, 249, 244);
 $color-text-body  : rgb(60, 60, 60);
 $color-text-light : rgb(184, 186, 188);
@@ -470,6 +470,7 @@ nav#mainnav {
   }
 
   a {
+    color: #222;
     text-decoration: none;
   }
 

@@ -681,9 +681,9 @@ article {
 
 article p a,
 aside p a {
-  color: #1b1aa8;
+  color: #0014a0;
   text-decoration: none;
-  background-image: linear-gradient(rgba(27, 26, 168, 0.25) 0%, #1b1aa8 100%);
+  background-image: linear-gradient(rgba(0, 20, 160, 0.25) 0%, #0014a0 100%);
   background-repeat: repeat-x;
   background-size: 1px 1px;
   background-position: 0 86%;
@@ -704,8 +704,8 @@ aside p a {
     } */ }
   article p a:hover,
   aside p a:hover {
-    color: #131277;
-    background-image: linear-gradient(to bottom, #17168e 0%, #17168e 100%); }
+    color: #000d68;
+    background-image: linear-gradient(to bottom, #001081 0%, #001081 100%); }
 
 section {
   padding-top: 1rem;
@@ -858,6 +858,7 @@ nav#mainnav {
     line-height: 3rem;
     position: absolute; }
   nav#mainnav a {
+    color: #222;
     text-decoration: none; }
 
 /* The Main manu itself.. */
