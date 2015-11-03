@@ -742,11 +742,11 @@ li {
 samp {
   background-color: transparent; }
 
-.sidenote, .marginnote, .sideimage {
+.sidenote, .sideimage {
   float: right;
   clear: right;
-  margin-right: calc(-50% - 3rem);
-  width: 50%;
+  margin-right: calc(-42% - 3rem);
+  width: 42%;
   margin-top: 0;
   margin-bottom: 0;
   font-size: 1.0rem;
@@ -754,7 +754,7 @@ samp {
   vertical-align: baseline;
   position: relative; }
   @media (max-width: 62em) {
-    .sidenote, .marginnote, .sideimage {
+    .sidenote, .sideimage {
       float: none;
       margin-right: 0; } }
 
@@ -767,31 +767,6 @@ samp {
   margin-bottom: 0;
   font-size: 1.0rem;
   line-height: 1.6; }
-
-.sidenote-number {
-  counter-increment: sidenote-counter; }
-
-.sidenote-number:after, .sidenote:before {
-  content: counter(sidenote-counter) " ";
-  position: relative;
-  vertical-align: baseline;
-  color: #f00000; }
-
-.sidenote-number:after {
-  content: counter(sidenote-counter);
-  font-size: 0.9rem;
-  top: -0.5rem;
-  left: 0.1rem; }
-
-.sidenote:before {
-  content: counter(sidenote-counter) ". ";
-  position: absolute;
-  /* 100% refers to the computed width of the number, so this transform
-                    * shifts the number just outside the left edge of the sidenote box,
-                    * with a buffer of 0.25rem, no matter how many digits the number has. */
-  -webkit-transform: translateX(-100%) translateX(-0.25rem);
-  -ms-transform: translateX(-100%) translateX(-0.25rem);
-  transform: translateX(-100%) translateX(-0.25rem); }
 
 .imageholder {
   padding: 3px;
@@ -813,7 +788,7 @@ samp {
 h1 .code, h2 .code, h3 .code {
   font-size: 0.80em; }
 
-.marginnote .code, .sidenote .code {
+.sidenote .code {
   font-size: 1rem; }
 
 pre {

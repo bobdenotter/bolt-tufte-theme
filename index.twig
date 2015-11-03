@@ -10,7 +10,7 @@
         {% if record.image!="" and not loop.first %}
         <span class="sideimage imageholder">
             <a href="{{ image(record.image) }}">
-                <img src="{{ thumbnail(record.image, 400, 260) }}">
+                <img src="{{ thumbnail(record.image, 300, 200) }}">
             </a>
         </span>
         {% endif %}

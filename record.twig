@@ -13,7 +13,7 @@
 
     <section>
 
-    {% if record.image!="" %}
+    {% if (record.image is not empty) and (record.image_position|default('sidebar') == 'sidebar')  %}
     <span class="sideimage imageholder">
         <a href="{{ image(record.image) }}">
             <img src="{{ thumbnail(record.image, 400, 260) }}">
@@ -23,12 +23,16 @@
 
     <p class="subtitle">{{ record.teaser|striptags('<b><em><i><strong><a><u>')|raw }}</p>
 
-
+    {% if (record.image is not empty) and (record.image_position|default('main') == 'main')  %}
     <span class="imageholder">
         <a href="{{ image(record.image) }}">
             <img src="{{ thumbnail(record.image, 800, 360) }}">
         </a>
     </span>
+    {% if record.values.image.title is not empty %}
+        <span class="note">{{ record.values.image.title }}</span>
+    {% endif %}
+    {% endif %}
 
     <span class="sidenote">
       This page was in fact originally an adaptation of the <a href="http://rmarkdown.rstudio.com/examples/tufte-handout.pdf">Tufte Handout Example</a> PDF.
