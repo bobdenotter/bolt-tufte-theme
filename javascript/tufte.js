@@ -18,12 +18,10 @@ $(document).ready(function() {
         if ( (top > 100) && $('.sitename').hasClass('show') ) {
             $('.sitename').removeClass('show').fadeOut('slow');
             $('.pagename').fadeIn('slow');
-            console.log('hide');
         }
         if ( (top < 100) && !$('.sitename').hasClass('show') ) {
             $('.sitename').addClass('show').fadeIn('slow');
             $('.pagename').fadeOut('slow');
-            console.log('show');
         }
     });
 
