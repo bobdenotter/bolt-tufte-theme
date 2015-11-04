@@ -39,3 +39,34 @@
     {{ pager() }}
 
 {% endblock %}
+
+{% block aside %}
+      <div class="col-xxs-12 col-m-4">
+
+        {# let's see if we have a "block" resource type, with 'about' for a slug? #}
+        {% setcontent about = 'blocks/about' %}
+        {% if about is not empty %}
+          {{ about.text }}
+          {% if about.blocklink is not empty %}
+            <a href="{{ about.blocklink }}">{{ __('Read more') }}</a>
+          {% endif %}
+        {% else %}
+
+          {# otherwise we might have a 'page' with slug 'about'? #}
+          {% setcontent about = 'blocks/about' %}
+            {% if about is not empty %}
+              {{ about.excerpt(200) }}
+              <a href="{{ about.link() }}">{{ __('Read more') }}</a>
+            {% else %}
+
+              {# fallback to dummy text #}
+              <p>
+                Welcome to the Tufte theme! Read the supplied README on instructions on how to change this blurb, right here. Thanks for choosing this simple theme!
+              </p>
+
+            {% endif %}
+        {% endif %}
+
+      </div>
+
+{% endblock aside %}
