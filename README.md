@@ -14,6 +14,42 @@ This project is directly inspired by and
 based on [Tufte-LaTeX](https://tufte-latex.github.io/tufte-latex/) and the
 [R Markdown Tufte Handout](http://rmarkdown.rstudio.com/examples/tufte-handout.pdf).
 
+A good starting point for the 'entries' contenttype is:
+
+```
+entries:
+    name: Entries
+    singular_name: Entry
+    fields:
+        title:
+            type: text
+            class: large
+            group: content
+        slug:
+            type: slug
+            uses: title
+        teaser:
+            type: html
+            height: 150px
+        image:
+            type: image
+            group: media
+            attrib: [ title, alt ]
+        image_position:
+            type: select
+            values:
+                main: "Main column"
+                sidebar: "Sidebar"
+        body:
+            type: html
+            height: 300px
+    taxonomy: [ categories, tags ]
+    listing_records: 10
+    default_status: publish
+    sort: -datepublish
+```
+
+
 Getting Started
 -
 The file *index.html* is a self-describing demonstration document that walks through
@@ -64,7 +100,7 @@ p { font-size: 1.4rem;
     width: 55%;
     padding-right: 0;
     vertical-align: baseline; }
-    
+
 @media screen and (max-width: 600px) { p { width: 70%; }}
 @media screen and (max-width: 400px) { p { width: 90%; }}
 ```

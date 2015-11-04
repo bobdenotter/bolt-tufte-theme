@@ -1,0 +1,25 @@
+{% macro image(img, rec, pos) %}
+
+    {% if pos == 'sidebar' %}
+        {% set w = 320 %}
+        {% set h = 240 %}
+        {% set class = 'sideimage' %}
+    {% else %}
+        {% set w = 800 %}
+        {% set h = 360 %}
+        {% set class = '' %}
+    {% endif %}
+
+    {% if (img.file is not empty) and (rec.image_position|default('main') == pos)  %}
+        <span class="imageholder {{ class }}">
+            <a href="{{ image(img.file) }}" title="{{ img.title|default('') }}">
+                <img src="{{ thumbnail(img.file, w, h) }}" alt="{{ img.alt|default('') }}">
+            </a>
+        </span>
+        {% if img.title is not empty %}
+            <span class="note">{{ img.title }}</span>
+        {% elseif img.alt is not empty %}
+            <span class="note">{{ img.alt }}</span>
+        {% endif %}
+    {% endif %}
+{% endmacro %}

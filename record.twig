@@ -1,5 +1,6 @@
 {% extends '_base.twig' %}
 
+{% import "_macro.twig" as macros %}
 
 {% block pagename %}
     <a href="{{ record.link }}">{{ record.title }}</a>
@@ -13,7 +14,7 @@
 
     <section>
 
-    {% if (record.image is not empty) and (record.image_position|default('sidebar') == 'sidebar')  %}
+    {% if (record.image is not empty) and (record.image_position|default('') == 'sidebar')  %}
     <span class="sideimage imageholder">
         <a href="{{ image(record.image) }}">
             <img src="{{ thumbnail(record.image, 400, 260) }}">
@@ -21,28 +22,21 @@
     </span>
     {% endif %}
 
-    <p class="subtitle">{{ record.teaser|striptags('<b><em><i><strong><a><u>')|raw }}</p>
+    <p class="subtitle">
+        {% if record.introduction is not empty %}
+            {{ record.introduction|striptags('<b><em><i><strong><a><u>')|raw }}
+        {% else %}
+            {{ record.teaser(300)|striptags('<b><em><i><strong><a><u>')|raw }}
+        {% endif %}
+    </p>
 
-    {% if (record.image is not empty) and (record.image_position|default('main') == 'main')  %}
-    <span class="imageholder">
-        <a href="{{ image(record.image) }}">
-            <img src="{{ thumbnail(record.image, 800, 360) }}">
-        </a>
-    </span>
-    {% if record.values.image.title is not empty %}
-        <span class="note">{{ record.values.image.title }}</span>
-    {% endif %}
-    {% endif %}
+    {{ macros.image(record.values.image, record, 'main') }}
 
     <span class="sidenote">
       This page was in fact originally an adaptation of the <a href="http://rmarkdown.rstudio.com/examples/tufte-handout.pdf">Tufte Handout Example</a> PDF.
     </span>
 
-    {{ tweet('twitter.com/x/status/660070869331533824') }}
-
-    {{ tweet(659993840049364992) }}
-
-
+    {{ record.body }}
 
     {% include '_recordfooter.twig' %}
 
