@@ -1,6 +1,6 @@
 {% extends '_base.twig' %}
 
-
+{% import "_macro.twig" as macros %}
 
 {% block content %}
 
@@ -8,11 +8,7 @@
     {% for record in records %}
 
         {% if record.image!="" and not loop.first %}
-        <span class="sideimage imageholder">
-            <a href="{{ image(record.image) }}">
-                <img src="{{ thumbnail(record.image, 300, 200) }}">
-            </a>
-        </span>
+            {{ macros.image(record.values.image, record, 'sidebar') }}
         {% endif %}
 
         <h2>{{ record.title }}</h2>
@@ -20,11 +16,7 @@
         {% include '_recordfooter.twig' with {'compact': true } %}
 
         {% if record.image!="" and loop.first %}
-        <span class="imageholder">
-            <a href="{{ image(record.image) }}">
-                <img src="{{ thumbnail(record.image, 800, 360) }}">
-            </a>
-        </span>
+            {{ macros.image(record.values.image, record, 'main') }}
         {% endif %}
 
 

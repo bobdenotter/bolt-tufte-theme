@@ -14,13 +14,7 @@
 
     <section>
 
-    {% if (record.image is not empty) and (record.image_position|default('') == 'sidebar')  %}
-    <span class="sideimage imageholder">
-        <a href="{{ image(record.image) }}">
-            <img src="{{ thumbnail(record.image, 400, 260) }}">
-        </a>
-    </span>
-    {% endif %}
+    {{ macros.image(record.values.image, record, 'sidebar') }}
 
     <p class="subtitle">
         {% if record.introduction is not empty %}
