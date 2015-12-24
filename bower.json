@@ -24,7 +24,7 @@
   "dependencies": {
     "magnific-popup": "~1.0.0",
     "responsive": "~4.1.1",
-    "slicknav": "~1.0.4",
+    "slicknav": "~1.0.5",
     "highlightjs": "~8.8.0"
   }
 }
