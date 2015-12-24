@@ -6,8 +6,10 @@
         {{ seo.title() }}
       {% else %}
         {% if record.title is defined %}{{ record.title|striptags }} | {% endif %}
-            {{ app.config.get('general/sitename') }}
-        {% if record.title is not defined and app.config.get('general/payoff') %} | {{ app.config.get('general/payoff') }}{% endif %}
+        {{ app.config.get('general/sitename') }}
+        {% if record.title is not defined and app.config.get('general/payoff') %}
+          | {{ app.config.get('general/payoff') }}
+        {% endif %}
       {% endif %}
   </title>
   {% if app.config.get('theme/body-font') != 'serif' %}
@@ -58,15 +60,12 @@
       {% block aside %}
       {% endblock %}
 
-
-
   </div>
 </div>
 
   <script src="{{ paths.theme }}javascript/jquery.js"></script>
   <script src="{{ paths.theme }}javascript/tufte.js"></script>
   <script src="{{ paths.theme }}javascript/highlight.pack.min.js"></script>
-
 
 </body>
 </html>
