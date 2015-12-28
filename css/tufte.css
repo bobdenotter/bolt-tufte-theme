@@ -405,6 +405,8 @@ img.mfp-img {
     float: left; }
   .slicknav_menu .slicknav_icon {
     float: left;
+    width: 1.125em;
+    height: 0.875em;
     margin: 0.188em 0 0 0.438em; }
   .slicknav_menu .slicknav_no-text {
     margin: 0; }
@@ -549,13 +551,13 @@ header {
 
 h1 {
   font-weight: 400;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.6rem;
   font-size: 3.2rem;
   line-height: 1; }
 
 h2 {
   font-weight: 400;
-  margin-bottom: 0;
+  margin: 2.2rem 0 0 0;
   font-size: 2.2rem;
   line-height: 1; }
 
@@ -576,6 +578,9 @@ p.subtitle {
 
 p {
   font-family: Cardo, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif; }
+
+hr {
+  margin: 2.2rem 0; }
 
 p.meta {
   font-size: 1.1rem;

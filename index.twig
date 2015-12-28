@@ -19,8 +19,7 @@
             {{ macros.image(record.values.image, record, 'main') }}
         {% endif %}
 
-
-        <p>{{ record.teaser|default(record.excerpt(320)) }}</p>
+        {{ record.teaser|default("<p>" ~ record.excerpt(320) ~ "</p>") }}
 
         <p><a href="{{ record.link }}">Continue reading &raquo;</a></p>
 
