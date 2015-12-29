@@ -48,6 +48,17 @@ div.container {
   }
 }
 
+body.boxed-page {
+  background: transparentize(darken($color-body, 15), 0.1);
+}
+
+div.boxed-page {
+  margin: 0 auto 2rem;
+  max-width: 1240px;
+  border: 1px solid darken($color-body, 15);
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+  background-color: $color-body;
+}
 
 header {
   height: 14rem;
@@ -452,7 +463,7 @@ nav#mainnav {
 
 
 
-/* The Main manu itself.. */
+/* The Main menu itself.. */
 #mainmenu {
 
   display: block;

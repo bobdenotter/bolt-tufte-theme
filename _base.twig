@@ -21,7 +21,11 @@
   <link rel="stylesheet" href="{{ paths.theme }}css/tufte.css"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body {% if app.config.get('theme/body-font') != 'serif' %}class="sans"{% endif %}>
+<body class="
+{%- if app.config.get('theme/body-font') != 'serif' %}sans {% endif %}
+{% if app.config.get('theme/boxed') %}boxed-page {% endif -%}
+  ">
+
 
 <nav id='mainnav'>
   <div class="container">
@@ -38,6 +42,9 @@
     {{ menu() }}
   </div>
 </nav>
+
+
+{% if app.config.get('theme/boxed') %}<div class="boxed-page">{% endif %}
 
 <div class="container">
   <div class="row">
@@ -62,6 +69,8 @@
 
   </div>
 </div>
+
+{% if app.config.get('theme/boxed') %}</div>{% endif %}
 
   <script src="{{ paths.theme }}javascript/jquery.js"></script>
   <script src="{{ paths.theme }}javascript/tufte.js"></script>

@@ -544,6 +544,16 @@ div.container {
     div.container {
       width: calc(100% - 2rem); } }
 
+body.boxed-page {
+  background: rgba(222, 222, 195, 0.9); }
+
+div.boxed-page {
+  margin: 0 auto 2rem;
+  max-width: 1240px;
+  border: 1px solid #dedec3;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+  background-color: #f9f9f4; }
+
 header {
   height: 14rem; }
   header h1 {
@@ -841,7 +851,7 @@ nav#mainnav {
     color: #222;
     text-decoration: none; }
 
-/* The Main manu itself.. */
+/* The Main menu itself.. */
 #mainmenu {
   display: block;
   float: right;
