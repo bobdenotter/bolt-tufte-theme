@@ -1,6 +1,30 @@
-////////////////////////
-//      Settings      //
-////////////////////////
+
+
+// Show the current breakpoints in the lower left corner.
+$debug-breakpoint: true;
+
+// Colors
+$color-accent     : rgb(0, 20, 160);
+$color-body       : rgb(249, 249, 244);
+$color-text-body  : rgb(60, 60, 60);
+$color-text-light : rgb(184, 186, 188);
+$color-ui-light   : lighten($color-text-light, 14%);
+
+// Font stacks
+$font-sans-serif  : "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
+$font-serif       : Cardo, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+
+$grid-breakpoint-xxs-max: 37.49em !default;
+$grid-breakpoint-xs-min: 37.5em !default;
+$grid-breakpoint-xs-max: 47.99em !default;
+$grid-breakpoint-s-min: 48em !default;
+$grid-breakpoint-s-max: 61.99em !default;
+$grid-breakpoint-m-min: 62em !default;
+$grid-breakpoint-m-max: 74.99em !default;
+$grid-breakpoint-l-min: 75em !default;
+
+
+// ------------ Settings for Magnific Popup ---------------
 
 // overlay
 $mfp-overlay-color:                   #0b0b0b !default;                    // Color of overlay screen
@@ -43,3 +67,4 @@ $mfp-caption-subtitle-color:          #BDBDBD !default;                    // Ca
 
 // A11y
 $mfp-use-visuallyhidden:              false !default;                      // Hide content from browsers, but make it available for screen readers
+

@@ -522,6 +522,31 @@ img.mfp-img {
   padding: 7px 12px;
   height: 44px; }
 
+body:before {
+  content: 'grid-breakpoint-xxs';
+  position: fixed;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  background: rgba(0, 0, 0, 0.85);
+  color: #FFF;
+  font-weight: bold;
+  z-index: 999;
+  padding: 0.5em 2em; }
+  @media (min-width: 37.5em) {
+    body:before {
+      content: 'grid-breakpoint-xs'; } }
+  @media (min-width: 48em) {
+    body:before {
+      content: 'grid-breakpoint-s'; } }
+  @media (min-width: 62em) {
+    body:before {
+      content: 'grid-breakpoint-m'; } }
+  @media (min-width: 75em) {
+    body:before {
+      content: 'grid-breakpoint-l'; } }
+
 html {
   -ms-font-feature-settings: "liga", "dlig";
   -o-font-feature-settings: "liga", "dlig";
@@ -542,7 +567,7 @@ div.container {
   width: calc(100% - 8rem); }
   @media (max-width: 37.5em) {
     div.container {
-      width: calc(100% - 2rem); } }
+      width: calc(100% - 3rem); } }
 
 body.boxed-page {
   background: rgba(222, 222, 195, 0.9); }
@@ -674,25 +699,29 @@ table.booktabs {
   table.booktabs tbody tr td.r {
     text-align: right !important; }
 
-article {
-  padding-right: 2rem; }
-  article figure {
-    max-width: 55%;
-    -webkit-margin-start: 0;
-    -webkit-margin-end: 0;
-    margin-bottom: 3em; }
-  article figcaption {
-    float: right;
-    clear: right;
-    margin-right: -48%;
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: 1.0rem;
-    line-height: 1.6;
-    vertical-align: baseline;
-    position: relative; }
-  article figure.fullwidth figcaption {
-    margin-right: 24%; }
+article figure {
+  max-width: 55%;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  margin-bottom: 3em; }
+
+article figcaption {
+  float: right;
+  clear: right;
+  margin-right: -48%;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.0rem;
+  line-height: 1.6;
+  vertical-align: baseline;
+  position: relative; }
+
+article figure.fullwidth figcaption {
+  margin-right: 24%; }
+
+@media (min-width: 62em) {
+  article {
+    padding-right: 2rem; } }
 
 article p a,
 aside p a {
@@ -771,7 +800,8 @@ samp {
   @media (max-width: 62em) {
     .sidenote, .sideimage {
       float: none;
-      margin-right: 0; } }
+      margin-right: 0;
+      width: 100%; } }
 
 .table-caption {
   float: right;
