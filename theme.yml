@@ -4,7 +4,7 @@
 # Note: If variables do not immediately show up, clear the cache, in the Bolt Backend.
 
 # The font for the body is either "serif" or "sans-serif"
-body-font: serif
+bodyfont: serif
 
 boxed: false
 
@@ -15,13 +15,8 @@ add_jquery: true
 
 
 # setting the header image. The default images in this theme all came from Pexels: http://pexels.com
-headerimage:
-    - agriculture-field-grain-1585.jpg
-    - beach-dune-field-1710.jpg
-    - boat-lake-landing-stage-2535.jpg
-    - daisies-flowers-grass-623.jpg
-    - dark-clouds-grass-landscape-405.jpg
-    - forest-grass-lawn-1826.jpg
+header:
+    image: images/larch-conifer-cone-branch-tree-nature-conifer.jpg
 
 # Template filenames. If you 're creating a theme for distribution, you can specify
 # the filenames of the templates here. The templates you will set in this config

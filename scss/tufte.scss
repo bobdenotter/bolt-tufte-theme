@@ -29,7 +29,7 @@ div.container {
 }
 
 body.boxed-page {
-  background: transparentize(darken($color-body, 15), 0.1);
+  background: desaturate(darken($color-body, 15), 25); // Todo: make configurable color
 }
 
 div.boxed-page {
@@ -42,6 +42,8 @@ div.boxed-page {
 
 header {
   height: 14rem;
+  background-repeat: no-repeat;
+  background-size: contain;
 
   h1 {
     margin-top: 9rem;

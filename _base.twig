@@ -26,7 +26,6 @@
 {% if theme.boxed|default('false') %}boxed-page {% endif -%}
   ">
 
-
 <nav id='mainnav'>
   <div class="container">
     <span class="sitename">
@@ -49,7 +48,7 @@
 <div class="container">
   <div class="row">
 
-      <header class="col-xxs-12">
+      <header class="col-xxs-12" {% if theme.header.image|default('false') %}style='background-image: url("{{ paths.theme }}{{theme.header.image}}");'{% endif %} >
           <h1>
             {% block title %}
               {{ app.config.get('general/sitename') }}

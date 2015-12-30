@@ -570,7 +570,7 @@ div.container {
       width: calc(100% - 3rem); } }
 
 body.boxed-page {
-  background: rgba(222, 222, 195, 0.9); }
+  background: #d2d2ce; }
 
 div.boxed-page {
   margin: 0 auto 2rem;
@@ -580,7 +580,9 @@ div.boxed-page {
   background-color: #f9f9f4; }
 
 header {
-  height: 14rem; }
+  height: 14rem;
+  background-repeat: no-repeat;
+  background-size: contain; }
   header h1 {
     margin-top: 9rem; }
 
