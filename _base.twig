@@ -22,8 +22,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body class="
-{%- if app.config.get('theme/body-font') != 'serif' %}sans {% endif %}
-{% if app.config.get('theme/boxed') %}boxed-page {% endif -%}
+{%- if theme.bodyfont != 'serif' %}sans {% endif %}
+{% if theme.boxed|default('false') %}boxed-page {% endif -%}
   ">
 
 
@@ -44,7 +44,7 @@
 </nav>
 
 
-{% if app.config.get('theme/boxed') %}<div class="boxed-page">{% endif %}
+{% if theme.boxed|default('false') %}<div class="boxed-page">{% endif %}
 
 <div class="container">
   <div class="row">
@@ -70,7 +70,7 @@
   </div>
 </div>
 
-{% if app.config.get('theme/boxed') %}</div>{% endif %}
+{% if theme.boxed|default('false') %}</div>{% endif %}
 
   <script src="{{ paths.theme }}javascript/jquery.js"></script>
   <script src="{{ paths.theme }}javascript/tufte.js"></script>

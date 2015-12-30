@@ -6,7 +6,7 @@
 # The font for the body is either "serif" or "sans-serif"
 body-font: serif
 
-boxed: true
+boxed: false
 
 foo: bar
 
