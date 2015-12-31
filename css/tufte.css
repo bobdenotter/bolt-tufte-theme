@@ -588,11 +588,24 @@ header h1 {
     header h1 {
       margin-top: 6rem; } }
 
-h1 {
+h1,
+h2,
+h3 {
   font-weight: 400;
-  margin-bottom: 1.6rem;
-  font-size: 3.2rem;
   line-height: 1.2; }
+  h1 a,
+  h2 a,
+  h3 a {
+    text-decoration: none;
+    color: inherit; }
+    h1 a:hover,
+    h2 a:hover,
+    h3 a:hover {
+      color: #000a54; }
+
+h1 {
+  margin-bottom: 1.6rem;
+  font-size: 3.2rem; }
   @media (max-width: 62em) {
     h1 {
       font-size: 2.5rem; } }
@@ -601,10 +614,8 @@ h1 {
       font-size: 2rem; } }
 
 h2 {
-  font-weight: 400;
   margin: 2.2rem 0 0 0;
-  font-size: 2.2rem;
-  line-height: 1; }
+  font-size: 2.2rem; }
   @media (max-width: 62em) {
     h2 {
       font-size: 2rem; } }
@@ -614,10 +625,8 @@ h2 {
 
 h3 {
   font-style: italic;
-  font-weight: 400;
   font-size: 1.7rem;
-  margin-bottom: 0;
-  line-height: 1; }
+  margin-bottom: 0; }
 
 p.subtitle {
   font-style: italic;
@@ -641,7 +650,8 @@ p.meta {
   p.meta a {
     background: none; }
     p.meta a:hover {
-      background: none; }
+      background: none;
+      color: #00073a; }
 
 table {
   width: 98%;

@@ -60,11 +60,25 @@ header {
 
 }
 
-h1 {
+h1,
+h2,
+h3 {
+
   font-weight: 400;
+  line-height: 1.2;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    &:hover {
+      color: darken($color-accent, 15%);
+    }
+  }
+}
+
+h1 {
   margin-bottom: 1.6rem;
   font-size: 3.2rem;
-  line-height: 1.2;
 
   @media (max-width: #{$grid-breakpoint-m-min}) {
     font-size: 2.5rem;
@@ -77,10 +91,8 @@ h1 {
 }
 
 h2 {
-  font-weight: 400;
   margin: 2.2rem 0 0 0;
   font-size: 2.2rem;
-  line-height: 1;
 
   @media (max-width: #{$grid-breakpoint-m-min}) {
     font-size: 2rem;
@@ -94,10 +106,8 @@ h2 {
 
 h3 {
   font-style: italic;
-  font-weight: 400;
   font-size: 1.7rem;
   margin-bottom: 0;
-  line-height: 1;
 }
 
 p.subtitle {
@@ -127,6 +137,7 @@ p.meta {
     background: none;
     &:hover {
       background: none;
+      color: darken($color-accent, 20%);
     }
   }
 

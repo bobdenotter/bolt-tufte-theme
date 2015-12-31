@@ -11,7 +11,7 @@
             {{ macros.image(record.values.image, record, 'sidebar') }}
         {% endif %}
 
-        <h2>{{ record.title }}</h2>
+        <h2><a href="{{ record.link() }}">{{ record.title }}</a></h2>
 
         {% include '_recordfooter.twig' with {'compact': true } %}
 

@@ -4,12 +4,10 @@
         {% set w = 633 %}
         {% set h = 422 %}
         {% set class = 'sideimage' %}
-        {% set noteclass = 'sidenote' %}
     {% else %}
         {% set w = 715 %}
         {% set h = 322 %}
         {% set class = '' %}
-        {% set noteclass = '' %}
     {% endif %}
 
     {% if (img.file is not empty) %}
@@ -23,9 +21,9 @@
                 </a>
             </span>
             {% if img.title is not empty %}
-                <span class="note {{ noteclass }}">{{ img.title }}</span>
+                <span class="note">{{ img.title }}</span>
             {% elseif img.alt is not empty %}
-                <span class="note {{ noteclass }}">{{ img.alt }}</span>
+                <span class="note">{{ img.alt }}</span>
             {% endif %}
 
         {% if class == 'sideimage' %}
