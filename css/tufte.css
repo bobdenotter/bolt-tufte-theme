@@ -537,7 +537,7 @@ body:before {
   @media (min-width: 37.5em) {
     body:before {
       content: 'grid-breakpoint-xs'; } }
-  @media (min-width: 48em) {
+  @media (min-width: 46em) {
     body:before {
       content: 'grid-breakpoint-s'; } }
   @media (min-width: 62em) {
@@ -579,39 +579,62 @@ div.boxed-page {
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
   background-color: #f9f9f4; }
 
-header {
-  height: 14rem;
-  background-repeat: no-repeat;
-  background-size: contain; }
-  header h1 {
-    margin-top: 9rem; }
+header h1 {
+  margin-top: 9rem; }
+  @media (max-width: 75em) {
+    header h1 {
+      margin-top: 7rem; } }
+  @media (max-width: 37.5em) {
+    header h1 {
+      margin-top: 6rem; } }
+
+h1,
+h2,
+h3 {
+  font-weight: 400;
+  line-height: 1.2; }
+  h1 a,
+  h2 a,
+  h3 a {
+    text-decoration: none;
+    color: inherit; }
+    h1 a:hover,
+    h2 a:hover,
+    h3 a:hover {
+      color: #000a54; }
 
 h1 {
-  font-weight: 400;
   margin-bottom: 1.6rem;
-  font-size: 3.2rem;
-  line-height: 1; }
+  font-size: 3.2rem; }
+  @media (max-width: 62em) {
+    h1 {
+      font-size: 2.5rem; } }
+  @media (max-width: 37.5em) {
+    h1 {
+      font-size: 2rem; } }
 
 h2 {
-  font-weight: 400;
   margin: 2.2rem 0 0 0;
-  font-size: 2.2rem;
-  line-height: 1; }
+  font-size: 2.2rem; }
+  @media (max-width: 62em) {
+    h2 {
+      font-size: 2rem; } }
+  @media (max-width: 37.5em) {
+    h2 {
+      font-size: 1.8rem; } }
 
 h3 {
   font-style: italic;
-  font-weight: 400;
   font-size: 1.7rem;
-  margin-bottom: 0;
-  line-height: 1; }
+  margin-bottom: 0; }
 
 p.subtitle {
   font-style: italic;
-  margin-top: 0;
+  margin-top: 0rem;
   margin-bottom: 1rem;
   font-size: 1.5rem;
   display: block;
-  line-height: 2.2rem; }
+  line-height: 2rem; }
 
 p {
   font-family: Cardo, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif; }
@@ -627,15 +650,8 @@ p.meta {
   p.meta a {
     background: none; }
     p.meta a:hover {
-      background: none; }
-
-p.subtitle {
-  font-style: italic;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-  display: block;
-  line-height: 2.2rem; }
+      background: none;
+      color: #00073a; }
 
 table {
   width: 98%;
@@ -725,6 +741,27 @@ article figure.fullwidth figcaption {
   article {
     padding-right: 2rem; } }
 
+aside {
+  padding-top: 0.8rem; }
+
+aside.sideimage {
+  float: right;
+  clear: right;
+  margin-right: calc(-42% - 3rem);
+  width: 42%;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  font-size: 1.0rem;
+  line-height: 1.6;
+  vertical-align: baseline;
+  position: relative; }
+  @media (max-width: 62em) {
+    aside.sideimage {
+      float: none;
+      margin-right: 0;
+      width: 100%; } }
+
 article p a,
 aside p a {
   color: #0014a0;
@@ -787,23 +824,6 @@ li {
 
 samp {
   background-color: transparent; }
-
-.sidenote, .sideimage {
-  float: right;
-  clear: right;
-  margin-right: calc(-42% - 3rem);
-  width: 42%;
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 1.0rem;
-  line-height: 1.6;
-  vertical-align: baseline;
-  position: relative; }
-  @media (max-width: 62em) {
-    .sidenote, .sideimage {
-      float: none;
-      margin-right: 0;
-      width: 100%; } }
 
 .table-caption {
   float: right;
@@ -873,12 +893,23 @@ nav#mainnav {
   position: fixed;
   z-index: 100;
   width: 100%;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1); }
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+  font-size: 16px; }
   nav#mainnav span.sitename,
   nav#mainnav span.pagename {
-    font-size: 1.6rem;
-    line-height: 3rem;
+    font-size: 1.6em;
+    line-height: 2em;
     position: absolute; }
+    @media (max-width: 75em) {
+      nav#mainnav span.sitename,
+      nav#mainnav span.pagename {
+        font-size: 1.4em;
+        line-height: 2.1em; } }
+    @media (max-width: 62em) {
+      nav#mainnav span.sitename,
+      nav#mainnav span.pagename {
+        font-size: 1.2em;
+        line-height: 2.3em; } }
   nav#mainnav a {
     color: #222;
     text-decoration: none; }
@@ -892,12 +923,20 @@ nav#mainnav {
     fxloat: right;
     margin: 0;
     padding: 0; }
-  #mainmenu ul a {
+  #mainmenu ul li a {
     display: block;
     color: #333;
     text-decoration: none;
     line-height: 3rem;
-    padding: 0 15px; }
+    padding: 0 1em; }
+    @media (max-width: 75em) {
+      #mainmenu ul li a {
+        font-size: 18px;
+        padding: 0 0.75em; } }
+    @media (max-width: 62em) {
+      #mainmenu ul li a {
+        font-size: 16px;
+        padding: 0 0.5em; } }
   #mainmenu ul li {
     position: relative;
     list-style: none;

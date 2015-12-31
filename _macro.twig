@@ -4,24 +4,31 @@
         {% set w = 633 %}
         {% set h = 422 %}
         {% set class = 'sideimage' %}
-        {% set noteclass = 'sidenote' %}
     {% else %}
         {% set w = 715 %}
         {% set h = 322 %}
         {% set class = '' %}
-        {% set noteclass = '' %}
     {% endif %}
 
     {% if (img.file is not empty) %}
-        <span class="imageholder {{ class }}">
-            <a href="{{ thumbnail(img.file, 1600, 1200) }}" title="{{ img.title|default('') }}">
-                <img src="{{ thumbnail(img.file, w, h) }}" alt="{{ img.alt|default('') }}">
-            </a>
-        </span>
-        {% if img.title is not empty %}
-            <span class="note {{ noteclass }}">{{ img.title }}</span>
-        {% elseif img.alt is not empty %}
-            <span class="note {{ noteclass }}">{{ img.alt }}</span>
+        {% if class == 'sideimage' %}
+            <aside class='sideimage'>
         {% endif %}
+
+            <span class="imageholder">
+                <a href="{{ thumbnail(img.file, 1600, 1200) }}" title="{{ img.title|default('') }}">
+                    <img src="{{ thumbnail(img.file, w, h) }}" alt="{{ img.alt|default('') }}">
+                </a>
+            </span>
+            {% if img.title is not empty %}
+                <span class="note">{{ img.title }}</span>
+            {% elseif img.alt is not empty %}
+                <span class="note">{{ img.alt }}</span>
+            {% endif %}
+
+        {% if class == 'sideimage' %}
+            </aside>
+        {% endif %}
+
     {% endif %}
 {% endmacro %}

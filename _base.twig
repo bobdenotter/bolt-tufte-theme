@@ -23,7 +23,7 @@
 </head>
 <body class="
 {%- if theme.bodyfont != 'serif' %}sans {% endif %}
-{% if theme.boxed|default('false') %}boxed-page {% endif -%}
+{% if theme.boxed|default(false) %}boxed-page {% endif -%}
   ">
 
 <nav id='mainnav'>
@@ -42,13 +42,12 @@
   </div>
 </nav>
 
-
-{% if theme.boxed|default('false') %}<div class="boxed-page">{% endif %}
+{% if theme.boxed|default(false) %}<div class="boxed-page">{% endif %}
 
 <div class="container">
   <div class="row">
 
-      <header class="col-xxs-12" {% if theme.header.image|default('false') %}style='background-image: url("{{ paths.theme }}{{theme.header.image}}");'{% endif %} >
+      <header class="col-xxs-12">
           <h1>
             {% block title %}
               {{ app.config.get('general/sitename') }}
@@ -69,7 +68,7 @@
   </div>
 </div>
 
-{% if theme.boxed|default('false') %}</div>{% endif %}
+{% if theme.boxed|default(false) %}</div>{% endif %}
 
   <script src="{{ paths.theme }}javascript/jquery.js"></script>
   <script src="{{ paths.theme }}javascript/tufte.js"></script>

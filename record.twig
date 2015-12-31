@@ -3,7 +3,7 @@
 {% import "_macro.twig" as macros %}
 
 {% block pagename %}
-    <a href="{{ record.link }}">{{ record.title }}</a>
+    <a href="{{ record.link }}">{{ record.title|excerpt(38) }}</a>
 {% endblock %}
 
 {% block title %}
@@ -14,7 +14,9 @@
 
     <section>
 
-    {{ macros.image(record.values.image, record, 'sidebar') }}
+    {% if record.image_position|default('main') == 'sidebar' %}
+        {{ macros.image(record.values.image, record, 'sidebar') }}
+    {% endif %}
 
     <p class="subtitle">
         {% if record.introduction is not empty %}
@@ -24,11 +26,10 @@
         {% endif %}
     </p>
 
-    {{ macros.image(record.values.image, record, 'main') }}
+    {% if record.image_position|default('main') == 'main' %}
+        {{ macros.image(record.values.image, record, 'main') }}
+    {% endif %}
 
-    <span class="sidenote">
-      This page was in fact originally an adaptation of the <a href="http://rmarkdown.rstudio.com/examples/tufte-handout.pdf">Tufte Handout Example</a> PDF.
-    </span>
 
     {{ record.body }}
 
