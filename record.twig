@@ -3,7 +3,7 @@
 {% import "_macro.twig" as macros %}
 
 {% block pagename %}
-    <a href="{{ record.link }}">{{ record.title }}</a>
+    <a href="{{ record.link }}">{{ record.title|excerpt(38) }}</a>
 {% endblock %}
 
 {% block title %}

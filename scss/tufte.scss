@@ -8,9 +8,11 @@ html {
   -o-font-feature-settings: "liga", "dlig";
   -webkit-font-feature-settings: "liga", "dlig";
   font-feature-settings: "liga", "dlig";
+
   @media (max-width: #{$grid-breakpoint-l-min}) {
     font-size: 14px;
   }
+
 }
 
 body {
@@ -18,6 +20,7 @@ body {
   background-color: $color-body;
   color: $color-text-body;
   counter-reset: sidenote-counter;
+
 }
 
 div.container {
@@ -41,12 +44,22 @@ div.boxed-page {
 }
 
 header {
-  height: 14rem;
-  background-repeat: no-repeat;
-  background-size: contain;
 
   h1 {
     margin-top: 9rem;
+
+    @media (max-width: #{$grid-breakpoint-l-min}) {
+      margin-top: 7rem;
+    }
+
+    @media (max-width: #{$grid-breakpoint-m-min}) {
+      margin-top: 6rem;
+    }
+
+    @media (max-width: #{$grid-breakpoint-xs-min}) {
+      margin-top: 3rem;
+    }
+
   }
 
 }
@@ -55,7 +68,16 @@ h1 {
   font-weight: 400;
   margin-bottom: 1.6rem;
   font-size: 3.2rem;
-  line-height: 1;
+  line-height: 1.2;
+
+  @media (max-width: #{$grid-breakpoint-m-min}) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: #{$grid-breakpoint-xs-min}) {
+    font-size: 2rem;
+  }
+
 }
 
 h2 {
@@ -75,11 +97,11 @@ h3 {
 
 p.subtitle {
   font-style: italic;
-  margin-top: 0;
+  margin-top: 0rem;
   margin-bottom: 1rem;
   font-size: 1.5rem;
   display: block;
-  line-height: 2.2rem;
+  line-height: 2rem;
 }
 
 p {
@@ -103,15 +125,6 @@ p.meta {
     }
   }
 
-}
-
-p.subtitle {
-  font-style: italic;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-  display: block;
-  line-height: 2.2rem;
 }
 
 
@@ -235,6 +248,31 @@ article {
 
 }
 
+aside {
+  padding-top: 0.8rem;
+}
+
+aside.sideimage {
+  float: right;
+  clear: right;
+  margin-right: calc(-42% - 3rem);
+  width: 42%;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  font-size: 1.0rem;
+  line-height: 1.6;
+  vertical-align: baseline;
+  position: relative;
+
+  @media (max-width: #{$grid-breakpoint-m-min}) {
+    float: none;
+    margin-right: 0;
+    width: 100%;
+  }
+
+}
+
 article p a,
 aside p a {
     color: $color-accent;
@@ -317,25 +355,7 @@ samp {
   background-color: transparent;
 }
 
-.sidenote, .sideimage {
-  float: right;
-  clear: right;
-  margin-right: calc(-42% - 3rem);
-  width: 42%;
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 1.0rem;
-  line-height: 1.6;
-  vertical-align: baseline;
-  position: relative;
 
-  @media (max-width: #{$grid-breakpoint-m-min}) {
-    float: none;
-    margin-right: 0;
-    width: 100%;
-  }
-
-}
 
 .table-caption {
   float: right;
@@ -432,12 +452,23 @@ nav#mainnav {
   z-index: 100;
   width: 100%;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
 
   span.sitename,
   span.pagename {
-    font-size: 1.6rem;
-    line-height: 3rem;
+    font-size: 1.6em;
+    line-height: 2em;
     position: absolute;
+
+    @media (max-width: #{$grid-breakpoint-l-min}) {
+      font-size: 1.4em;
+      line-height: 2.1em;
+    }
+    @media (max-width: #{$grid-breakpoint-m-min}) {
+      font-size: 1.2em;
+      line-height: 2.5em;
+    }
+
   }
 
   a {
@@ -462,12 +493,22 @@ nav#mainnav {
     padding: 0;
   }
 
-  ul a {
+  ul li a {
     display: block;
     color: #333;
     text-decoration: none;
     line-height: 3rem;
-    padding: 0 15px
+    padding: 0 1em;
+
+    @media (max-width: #{$grid-breakpoint-l-min}) {
+      font-size: 18px;
+      padding: 0 0.75em;
+    }
+    @media (max-width: #{$grid-breakpoint-m-min}) {
+      font-size: 16px;
+      padding: 0 0.5em;
+    }
+
   }
 
   ul li {
