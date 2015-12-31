@@ -22,9 +22,9 @@
     "tests"
   ],
   "dependencies": {
-    "magnific-popup": "~1.0.0",
+    "magnific-popup": "~1.0.1",
     "responsive": "~4.1.1",
     "slicknav": "~1.0.5",
-    "highlightjs": "~8.8.0"
+    "highlightjs": "~9.0.0"
   }
 }
