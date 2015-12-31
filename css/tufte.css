@@ -584,12 +584,9 @@ header h1 {
   @media (max-width: 75em) {
     header h1 {
       margin-top: 7rem; } }
-  @media (max-width: 62em) {
-    header h1 {
-      margin-top: 6rem; } }
   @media (max-width: 37.5em) {
     header h1 {
-      margin-top: 3rem; } }
+      margin-top: 6rem; } }
 
 h1 {
   font-weight: 400;
@@ -608,6 +605,12 @@ h2 {
   margin: 2.2rem 0 0 0;
   font-size: 2.2rem;
   line-height: 1; }
+  @media (max-width: 62em) {
+    h2 {
+      font-size: 2rem; } }
+  @media (max-width: 37.5em) {
+    h2 {
+      font-size: 1.8rem; } }
 
 h3 {
   font-style: italic;
@@ -896,7 +899,7 @@ nav#mainnav {
       nav#mainnav span.sitename,
       nav#mainnav span.pagename {
         font-size: 1.2em;
-        line-height: 2.5em; } }
+        line-height: 2.3em; } }
   nav#mainnav a {
     color: #222;
     text-decoration: none; }

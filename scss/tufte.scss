@@ -52,12 +52,8 @@ header {
       margin-top: 7rem;
     }
 
-    @media (max-width: #{$grid-breakpoint-m-min}) {
-      margin-top: 6rem;
-    }
-
     @media (max-width: #{$grid-breakpoint-xs-min}) {
-      margin-top: 3rem;
+      margin-top: 6rem;
     }
 
   }
@@ -85,6 +81,15 @@ h2 {
   margin: 2.2rem 0 0 0;
   font-size: 2.2rem;
   line-height: 1;
+
+  @media (max-width: #{$grid-breakpoint-m-min}) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: #{$grid-breakpoint-xs-min}) {
+    font-size: 1.8rem;
+  }
+
 }
 
 h3 {
@@ -466,7 +471,7 @@ nav#mainnav {
     }
     @media (max-width: #{$grid-breakpoint-m-min}) {
       font-size: 1.2em;
-      line-height: 2.5em;
+      line-height: 2.3em;
     }
 
   }

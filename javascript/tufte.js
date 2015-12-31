@@ -4,7 +4,7 @@ $(document).ready(function() {
 
     $('.imageholder a').magnificPopup({type:'image'});
 
-    $('#mainmenu').slicknav();
+    $('#mainmenu').slicknav({ prependTo: '#mainnav' });
 
     $('pre code').each(function(i, block) {
         hljs.highlightBlock(block);
