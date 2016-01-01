@@ -522,31 +522,6 @@ img.mfp-img {
   padding: 7px 12px;
   height: 44px; }
 
-body:before {
-  content: 'grid-breakpoint-xxs';
-  position: fixed;
-  text-align: center;
-  bottom: 0;
-  left: 0;
-  width: auto;
-  background: rgba(0, 0, 0, 0.85);
-  color: #FFF;
-  font-weight: bold;
-  z-index: 999;
-  padding: 0.5em 2em; }
-  @media (min-width: 37.5em) {
-    body:before {
-      content: 'grid-breakpoint-xs'; } }
-  @media (min-width: 46em) {
-    body:before {
-      content: 'grid-breakpoint-s'; } }
-  @media (min-width: 62em) {
-    body:before {
-      content: 'grid-breakpoint-m'; } }
-  @media (min-width: 75em) {
-    body:before {
-      content: 'grid-breakpoint-l'; } }
-
 html {
   -ms-font-feature-settings: "liga", "dlig";
   -o-font-feature-settings: "liga", "dlig";
@@ -977,3 +952,31 @@ nav#mainnav {
   .slicknav_menu {
     display: inline-block;
     float: right; } }
+
+/* Pagination */
+div.pagination {
+  margin: 2rem 0; }
+  div.pagination ul {
+    margin: 0;
+    padding: 0; }
+    div.pagination ul li {
+      list-style: none;
+      display: inline-block;
+      border: 1px solid rgba(0, 0, 0, 0.11);
+      background-color: rgba(0, 0, 0, 0.1);
+      padding: 0;
+      margin: 0; }
+      div.pagination ul li.active {
+        border: 1px solid rgba(0, 0, 0, 0.22);
+        background-color: rgba(0, 0, 0, 0.21); }
+      div.pagination ul li a,
+      div.pagination ul li a:active,
+      div.pagination ul li a:visited {
+        display: inline-block;
+        padding: 0.4rem 0.9rem;
+        text-decoration: none;
+        color: #333; }
+      div.pagination ul li:hover {
+        background-color: transparent; }
+        div.pagination ul li:hover a {
+          color: #000; }

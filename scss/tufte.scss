@@ -589,3 +589,48 @@ nav#mainnav {
   }
 
 }
+
+/* Pagination */
+div.pagination {
+  margin: 2rem 0;
+
+  ul {
+
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+      display: inline-block;
+      border: 1px solid rgba(0, 0, 0, 0.11);
+      background-color: rgba(0, 0, 0, 0.1);
+      padding: 0;
+      margin: 0;
+
+      &.active {
+        border: 1px solid rgba(0, 0, 0, 0.22);
+        background-color: rgba(0, 0, 0, 0.21);
+      }
+
+      a,
+      a:active,
+      a:visited {
+        display: inline-block;
+        padding: 0.4rem 0.9rem;
+        text-decoration: none;
+        color: #333;
+      }
+
+      &:hover {
+        background-color: transparent;
+        a {
+          color: #000;
+        }
+      }
+
+    }
+  }
+
+
+}
+
