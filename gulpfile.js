@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var $    = require('gulp-load-plugins')();
 
 var sassPaths = [
-    'scss/',
+    'source/scss/',
     'bower_components/foundation-sites/scss',
     // 'bower_components/motion-ui/src',
     'bower_components/slicknav/scss',
@@ -11,9 +11,10 @@ var sassPaths = [
 
 
 gulp.task('sass', function() {
-  return gulp.src('scss/tufte.scss')
+  return gulp.src('source/scss/tufte.scss')
     .pipe($.sass({
-      includePaths: sassPaths
+      includePaths: sassPaths,
+      outputStyle: 'nested' // 'compressed' or 'nested'
     })
       .on('error', $.sass.logError))
     .pipe($.autoprefixer({
@@ -24,5 +25,5 @@ gulp.task('sass', function() {
 
 
 gulp.task('default', ['sass'], function() {
-  gulp.watch(['scss/**/*.scss'], ['sass']);
+  gulp.watch(['source/scss/**/*.scss'], ['sass']);
 });
