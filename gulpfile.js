@@ -1,5 +1,6 @@
-var gulp = require('gulp');
-var $    = require('gulp-load-plugins')();
+var gulp   = require('gulp');
+var $      = require('gulp-load-plugins')();
+var uglify = require('gulp-uglify');
 
 var sassPaths = [
     'source/scss/',
@@ -21,6 +22,12 @@ gulp.task('sass', function() {
       browsers: ['last 2 versions', 'ie >= 9']
     }))
     .pipe(gulp.dest('css'));
+});
+
+gulp.task('compress', function() {
+  return gulp.src('source/javascript/*.js')
+    .pipe(uglify())
+    .pipe(gulp.dest('javascript'));
 });
 
 
