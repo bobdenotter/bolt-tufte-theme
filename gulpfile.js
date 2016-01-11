@@ -10,6 +10,10 @@ var sassPaths = [
     'bower_components/highlightjs/styles'
 ];
 
+var javascriptFiles = [
+    'bower_components/jquery/dist/jquery.js'
+];
+
 // Set up 'sass' task.
 gulp.task('sass', function() {
   return gulp.src('source/scss/tufte.scss')
@@ -30,6 +34,13 @@ gulp.task('compress', function() {
     .pipe($.uglify())
     .pipe(gulp.dest('javascript'));
 });
+
+
+gulp.task('copyjavascript', function() {
+   gulp.src(javascriptFiles)
+   .pipe(gulp.dest('source/javascript'));
+});
+
 
 // Set up 'default' task, with watches.
 gulp.task('default', ['sass', 'compress'], function() {
