@@ -1,15 +1,28 @@
 {
   "name": "bolt-tufte-theme",
-  "title": "A Theme for Bolt, based on Edward Tufte's distinct style.",
-  "version": "0.1.0",
+  "description": "A Theme for Bolt, based on Edward Tufte's distinctive style.",
+  "version": "0.2.0",
   "license": "MIT",
-  "repository": "https://github.com/bobdenotter/bolt-tufte-theme",
+  "repository": "",
+  "main": "gulpfile.js",
   "devDependencies": {
-    "node-sass": "^3.4.2",
-    "grunt": "~0.4.5",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-sass": "^1.1.0",
-    "grunt-contrib-copy": "^0.8.2"
-  }
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.2.0",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-sass": "^2.1.0"
+  },
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp sass"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bobdenotter/bolt-tufte-theme"
+  },
+  "bugs": {
+    "url": "https://github.com/bobdenotter/bolt-tufte-theme/issues",
+    "email": "bob@twokings.nl"
+  },
+  "author": "Bob den Otter <bob@twokings.nl>",
+  "private": false
 }
-
