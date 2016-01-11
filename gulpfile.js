@@ -1,7 +1,7 @@
 var gulp   = require('gulp');
 var $      = require('gulp-load-plugins')();
-var uglify = require('gulp-uglify');
 
+// Define base paths for Sass and Javascript.
 var sassPaths = [
     'source/scss/',
     'bower_components/foundation-sites/scss',
@@ -10,7 +10,7 @@ var sassPaths = [
     'bower_components/highlightjs/styles'
 ];
 
-
+// Set up 'sass' task.
 gulp.task('sass', function() {
   return gulp.src('source/scss/tufte.scss')
     .pipe($.sass({
@@ -24,13 +24,15 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('css'));
 });
 
+// Set up 'compress' task.
 gulp.task('compress', function() {
   return gulp.src('source/javascript/*.js')
-    .pipe(uglify())
+    .pipe($.uglify())
     .pipe(gulp.dest('javascript'));
 });
 
-
-gulp.task('default', ['sass'], function() {
+// Set up 'default' task, with watches.
+gulp.task('default', ['sass', 'compress'], function() {
   gulp.watch(['source/scss/**/*.scss'], ['sass']);
+  gulp.watch(['source/javascript/**/*.js'], ['compress']);
 });
