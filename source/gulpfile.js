@@ -3,7 +3,7 @@ var $      = require('gulp-load-plugins')();
 
 // Define base paths for Sass and Javascript.
 var sassPaths = [
-    'source/scss/',
+    'scss/',
     'bower_components/foundation-sites/scss',
     // 'bower_components/motion-ui/src',
     'bower_components/slicknav/scss',
@@ -11,12 +11,13 @@ var sassPaths = [
 ];
 
 var javascriptFiles = [
-    'bower_components/jquery/dist/jquery.js'
+    'bower_components/jquery/dist/jquery.js',
+    'bower_components/highlightjs/highlight.pack.min.js'
 ];
 
 // Set up 'sass' task.
 gulp.task('sass', function() {
-  return gulp.src('source/scss/tufte.scss')
+  return gulp.src('scss/tufte.scss')
     .pipe($.sass({
       includePaths: sassPaths,
       outputStyle: 'nested' // 'compressed' or 'nested'
@@ -25,25 +26,25 @@ gulp.task('sass', function() {
     .pipe($.autoprefixer({
       browsers: ['last 2 versions', 'ie >= 9']
     }))
-    .pipe(gulp.dest('css'));
+    .pipe(gulp.dest('../css'));
 });
 
 // Set up 'compress' task.
 gulp.task('compress', function() {
-  return gulp.src('source/javascript/*.js')
+  return gulp.src('javascript/*.js')
     .pipe($.uglify())
-    .pipe(gulp.dest('javascript'));
+    .pipe(gulp.dest('../javascript'));
 });
 
 
 gulp.task('copyjavascript', function() {
    gulp.src(javascriptFiles)
-   .pipe(gulp.dest('source/javascript'));
+   .pipe(gulp.dest('javascript'));
 });
 
 
 // Set up 'default' task, with watches.
 gulp.task('default', ['sass', 'compress'], function() {
-  gulp.watch(['source/scss/**/*.scss'], ['sass']);
-  gulp.watch(['source/javascript/**/*.js'], ['compress']);
+  gulp.watch(['scss/**/*.scss'], ['sass']);
+  gulp.watch(['javascript/**/*.js'], ['compress']);
 });
