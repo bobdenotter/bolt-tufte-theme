@@ -20,9 +20,9 @@
                     <img src="{{ thumbnail(img.file, w, h) }}" alt="{{ img.alt|default('') }}">
                 </a>
             </span>
-            {% if img.title is not empty %}
+            {% if img.title is defined and img.title is not empty %}
                 <span class="note">{{ img.title }}</span>
-            {% elseif img.alt is not empty %}
+            {% elseif img.alt is defined and img.alt is not empty %}
                 <span class="note">{{ img.alt }}</span>
             {% endif %}
 
