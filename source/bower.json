@@ -26,9 +26,9 @@
     "responsive": "~4.1.2",
     "slicknav": "~1.0.7",
     "highlightjs": "~9.2.0",
-    "jquery": "^2.2.2"
+    "jquery": "^3.1.0"
   },
   "resolutions": {
-    "jquery": "^2.2.2"
+    "jquery": "^3.1.0"
   }
 }

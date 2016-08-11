@@ -343,15 +343,12 @@ img.mfp-img {
 
 @media all and (max-width: 900px) {
   .mfp-arrow {
-    -webkit-transform: scale(0.75);
     -ms-transform: scale(0.75);
         transform: scale(0.75); }
   .mfp-arrow-left {
-    -webkit-transform-origin: 0;
     -ms-transform-origin: 0;
         transform-origin: 0; }
   .mfp-arrow-right {
-    -webkit-transform-origin: 100%;
     -ms-transform-origin: 100%;
         transform-origin: 100%; }
   .mfp-container {
@@ -515,7 +512,6 @@ img.mfp-img {
 html {
   -ms-font-feature-settings: "liga", "dlig";
   -o-font-feature-settings: "liga", "dlig";
-  -webkit-font-feature-settings: "liga", "dlig";
   font-feature-settings: "liga", "dlig"; }
   @media (max-width: 75em) {
     html {
