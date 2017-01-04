@@ -1,4 +1,5 @@
 @import 'settings';
+@import 'fonts';
 @import 'magnific-popup/main';
 @import 'slicknav';
 @import 'breakpointdebug';
@@ -144,12 +145,14 @@ p.meta {
 
 
 table {
-  width: 98%;
+  width: 100%;
   clear: left;
   text-align: right;
-  font-size: 1.2rem;
-  line-height: 1.4;
-  margin: 1.4rem 1%;
+  font-size: 1.1rem;
+  line-height: 1.2;
+  margin: 1.2rem 0;
+  border-top: 2px solid #666;
+  border-bottom: 2px solid #666;
   border-collapse: separate;
   border-spacing: 0 5px;
   -webkit-font-feature-settings: 'tnum';
@@ -159,8 +162,8 @@ table {
 }
 
 thead th {
-  border-bottom: 1px solid #AAAAAA;
-  font-weight: 400;
+  border-bottom: 1px solid #666;
+  font-weight: bold;
   border-collapse: separate;
   border-spacing: 5px 5px;
 }
@@ -385,9 +388,9 @@ samp {
 
 
 .imageholder {
-  padding: 3px;
-  background-color: #FFF;
-  border: 1px solid darken($color-body, 15);
+  padding: 4px;
+  background-color: lighten($color-body, 10);
+  border: 1px solid darken($color-body, 20);
   display: block;
 
   a {
@@ -396,6 +399,14 @@ samp {
 
   img {
     display: block;
+  }
+
+  span {
+    font-style: italic;
+    text-align: center;
+    display: block;
+    color: #666;
+    margin: 0.5em 0;
   }
 
 }
@@ -458,7 +469,6 @@ body.sans {
   }
 }
 
-
 nav#mainnav {
   border-bottom: 1px solid darken($color-body, 15);
   background: transparentize(darken($color-body, 10), 0.1);
@@ -492,8 +502,6 @@ nav#mainnav {
   }
 
 }
-
-
 
 /* The Main menu itself.. */
 #mainmenu {
@@ -629,7 +637,5 @@ div.pagination {
 
     }
   }
-
-
 }
 

@@ -8,8 +8,6 @@ bodyfont: serif
 
 boxed: false
 
-foo: bar
-
 # Add jQuery to the rendered HTML, whether or not it's added by an extension.
 add_jquery: true
 

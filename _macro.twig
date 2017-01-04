@@ -19,12 +19,12 @@
                 <a href="{{ thumbnail(img.file, 1600, 1200) }}" title="{{ img.title|default('') }}">
                     <img src="{{ thumbnail(img.file, w, h) }}" alt="{{ img.alt|default('') }}">
                 </a>
+                {% if img.title is defined and img.title is not empty %}
+                    <span class="note">{{ img.title }}</span>
+                {% elseif img.alt is defined and img.alt is not empty %}
+                    <span class="note">{{ img.alt }}</span>
+                {% endif %}
             </span>
-            {% if img.title is defined and img.title is not empty %}
-                <span class="note">{{ img.title }}</span>
-            {% elseif img.alt is defined and img.alt is not empty %}
-                <span class="note">{{ img.alt }}</span>
-            {% endif %}
 
         {% if class == 'sideimage' %}
             </aside>

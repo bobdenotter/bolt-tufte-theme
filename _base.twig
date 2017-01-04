@@ -12,10 +12,10 @@
         {% endif %}
       {% endif %}
   </title>
+
   {% if app.config.get('theme/body-font') != 'serif' %}
-    <link href='https://tempfonts.kx.nu/OpenSans.css' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&amp;subset=latin-ext" rel="stylesheet">
   {% endif %}
-  <link rel="stylesheet" href="https://tempfonts.kx.nu/Cardo.css">
   <link rel="stylesheet" href="{{ paths.theme }}css/responsive.min.css"/>
   <link rel="stylesheet" href="{{ paths.theme }}css/atelier-estuary.light.css"/>
   <link rel="stylesheet" href="{{ paths.theme }}css/tufte.css"/>

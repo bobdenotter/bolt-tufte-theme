@@ -1,3 +1,24 @@
+@font-face {
+  font-display: fallback;
+  font-family: 'Cardo';
+  src: url("../fonts/700.woff2") format("woff2"), url("../fonts/700.woff") format("woff"), url("../fonts/700.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal; }
+
+@font-face {
+  font-display: fallback;
+  font-family: 'Cardo';
+  src: url("../fonts/400i.woff2") format("woff2"), url("../fonts/400i.woff") format("woff"), url("../fonts/400i.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic; }
+
+@font-face {
+  font-display: fallback;
+  font-family: 'Cardo';
+  src: url("../fonts/400.woff2") format("woff2"), url("../fonts/400.woff") format("woff"), url("../fonts/400.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal; }
+
 /* Magnific Popup CSS */
 .mfp-bg {
   top: 0;
@@ -518,7 +539,7 @@ html {
       font-size: 14px; } }
 
 body {
-  font-family: Cardo, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+  font-family: "Cardo", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
   background-color: #f9f9f4;
   color: #3c3c3c;
   counter-reset: sidenote-counter; }
@@ -598,7 +619,7 @@ p.subtitle {
   line-height: 2rem; }
 
 p {
-  font-family: Cardo, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif; }
+  font-family: "Cardo", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif; }
 
 hr {
   margin: 2.2rem 0; }
@@ -615,12 +636,14 @@ p.meta {
       color: #00073a; }
 
 table {
-  width: 98%;
+  width: 100%;
   clear: left;
   text-align: right;
-  font-size: 1.2rem;
-  line-height: 1.4;
-  margin: 1.4rem 1%;
+  font-size: 1.1rem;
+  line-height: 1.2;
+  margin: 1.2rem 0;
+  border-top: 2px solid #666;
+  border-bottom: 2px solid #666;
   border-collapse: separate;
   border-spacing: 0 5px;
   -webkit-font-feature-settings: 'tnum';
@@ -629,8 +652,8 @@ table {
   -ms-font-feature-settings: 'tnum'; }
 
 thead th {
-  border-bottom: 1px solid #AAAAAA;
-  font-weight: 400;
+  border-bottom: 1px solid #666;
+  font-weight: bold;
   border-collapse: separate;
   border-spacing: 5px 5px; }
 
@@ -797,14 +820,20 @@ samp {
   line-height: 1.6; }
 
 .imageholder {
-  padding: 3px;
-  background-color: #FFF;
-  border: 1px solid #dedec3;
+  padding: 4px;
+  background-color: white;
+  border: 1px solid #d5d5b2;
   display: block; }
   .imageholder a {
     background: none; }
   .imageholder img {
     display: block; }
+  .imageholder span {
+    font-style: italic;
+    text-align: center;
+    display: block;
+    color: #666;
+    margin: 0.5em 0; }
 
 .code {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;

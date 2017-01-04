@@ -11,8 +11,8 @@ $color-text-light : rgb(184, 186, 188);
 $color-ui-light   : lighten($color-text-light, 14%);
 
 // Font stacks
-$font-sans-serif  : "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
-$font-serif       : Cardo, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+$font-sans-serif  : 'Open Sans', 'Helvetica Neue', Helvetica, sans-serif;
+$font-serif       : 'Cardo', Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
 
 // XXS = smaller than ~ 600 px width
 // XS = over ~ 600 px width

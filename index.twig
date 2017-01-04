@@ -35,19 +35,20 @@
       <aside class="col-xxs-12 col-m-4">
 
         {# let's see if we have a "block" resource type, with 'about' for a slug? #}
-        {% setcontent about = 'blocks/about' %}
+        {% setcontent about = 'blocks/about-us' %}
         {% if about is not empty %}
-          {{ about.text }}
-          {% if about.blocklink is not empty %}
-            <a href="{{ about.blocklink }}">{{ __('Read more') }}</a>
+          <h3>{{ about.title }}</h3>
+          {{ about.content }}
+          {% if about.contentlink is not empty %}
+            <a href="{{ about.contentlink }}">Continue reading &raquo;</a>
           {% endif %}
         {% else %}
 
           {# otherwise we might have a 'page' with slug 'about'? #}
-          {% setcontent about = 'blocks/about' %}
+          {% setcontent about = 'page/about' %}
             {% if about is not empty %}
               {{ about.excerpt(200) }}
-              <a href="{{ about.link() }}">{{ __('Read more') }}</a>
+              <a href="{{ about.link() }}">Continue reading &raquo;</a>
             {% else %}
 
               {# fallback to dummy text #}
