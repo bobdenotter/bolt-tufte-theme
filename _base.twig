@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-  <meta charset="utf-8"/>
+  <meta charset='utf-8'/>
   <title>
       {% if Seo is defined %}
         {{ seo.title() }}
@@ -14,40 +14,40 @@
   </title>
 
   {% if app.config.get('theme/body-font') != 'serif' %}
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&amp;subset=latin-ext" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&amp;subset=latin-ext' rel='stylesheet'>
   {% endif %}
-  <link rel="stylesheet" href="{{ paths.theme }}css/responsive.min.css"/>
-  <link rel="stylesheet" href="{{ paths.theme }}css/atelier-estuary.light.css"/>
-  <link rel="stylesheet" href="{{ paths.theme }}css/tufte.css"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet' href='{{ paths.theme }}css/responsive.min.css'/>
+  <link rel='stylesheet' href='{{ paths.theme }}css/atelier-estuary.light.css'/>
+  <link rel='stylesheet' href='{{ paths.theme }}css/tufte.css'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
-<body class="
+<body class='
 {%- if theme.bodyfont != 'serif' %}sans {% endif %}
 {% if theme.boxed|default(false) %}boxed-page {% endif -%}
-  ">
+  '>
 
 <nav id='mainnav'>
-  <div class="container">
-    <span class="sitename">
+  <div class='container'>
+    <span class='sitename'>
       {% if app.request.get('_route') != 'homepage' %}
-        <a href="{{ paths.root }}">{{ app.config.get('general/sitename') }}</a>
+        <a href='{{ paths.root }}'>{{ app.config.get('general/sitename') }}</a>
       {% endif %}
     </span>
-    <span class="pagename">
+    <span class='pagename'>
       {% block pagename %}
-          <a href="{{ paths.root }}">{{ app.config.get('general/sitename') }}</a>
+          <a href='{{ paths.root }}'>{{ app.config.get('general/sitename') }}</a>
       {% endblock %}
     </span>
     {{ menu() }}
   </div>
 </nav>
 
-{% if theme.boxed|default(false) %}<div class="boxed-page">{% endif %}
+{% if theme.boxed|default(false) %}<div class='boxed-page'>{% endif %}
 
-<div class="container">
-  <div class="row">
+<div class='container'>
+  <div class='row'>
 
-      <header class="col-xxs-12">
+      <header class='col-xxs-12'>
           <h1>
             {% block title %}
               {{ app.config.get('general/sitename') }}
@@ -55,7 +55,7 @@
           </h1>
       </header>
 
-      <article class="col-xxs-12 col-m-8">
+      <article class='col-xxs-12 col-m-8'>
 
           {% block content %}
           {% endblock %}
@@ -70,8 +70,8 @@
 
 {% if theme.boxed|default(false) %}</div>{% endif %}
 
-  <script src="{{ paths.theme }}javascript/jquery.js"></script>
-  <script src="{{ paths.theme }}javascript/tufte.js"></script>
+  <script src='{{ paths.theme }}javascript/jquery.js'></script>
+  <script src='{{ paths.theme }}javascript/tufte.js'></script>
 
 </body>
 </html>
