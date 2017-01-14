@@ -16,9 +16,8 @@
   {% if app.config.get('theme/body-font') != 'serif' %}
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&amp;subset=latin-ext' rel='stylesheet'>
   {% endif %}
-  <link rel='stylesheet' href='{{ paths.theme }}css/responsive.min.css'/>
-  <link rel='stylesheet' href='{{ paths.theme }}css/atelier-estuary.light.css'/>
-  <link rel='stylesheet' href='{{ paths.theme }}css/tufte.css'/>
+  <link rel='stylesheet' href='{{ asset('css/responsive.min.css', 'theme') }}'/>
+  <link rel='stylesheet' href='{{ asset('css/tufte.css', 'theme') }}'/>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
 <body class='
@@ -70,8 +69,8 @@
 
 {% if theme.boxed|default(false) %}</div>{% endif %}
 
-  <script src='{{ paths.theme }}javascript/jquery.js'></script>
-  <script src='{{ paths.theme }}javascript/tufte.js'></script>
+  <script src='{{ asset('javascript/jquery.js', 'theme') }}'></script>
+  <script src='{{ asset('javascript/tufte.js', 'theme') }}'></script>
 
 </body>
 </html>

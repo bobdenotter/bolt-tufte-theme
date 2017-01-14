@@ -1027,7 +1027,7 @@ body.sans p {
 
 nav#mainnav {
   border-bottom: 1px solid #dedec3;
-  background: rgba(231, 231, 211, 0.9);
+  background: rgba(231, 231, 211, 0.85);
   min-height: 3rem;
   position: fixed;
   z-index: 100;

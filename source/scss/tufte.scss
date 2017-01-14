@@ -472,7 +472,7 @@ body.sans {
 
 nav#mainnav {
   border-bottom: 1px solid darken($color-body, 15);
-  background: transparentize(darken($color-body, 10), 0.1);
+  background: transparentize(darken($color-body, 10), 0.15);
   min-height: 3rem;
   position: fixed;
   z-index: 100;
