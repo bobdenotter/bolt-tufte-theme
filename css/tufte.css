@@ -28,9 +28,8 @@
   z-index: 1042;
   overflow: hidden;
   position: fixed;
-  background: #0b0b0b;
-  opacity: 0.8;
-  filter: alpha(opacity=80); }
+  background: #EEE;
+  opacity: 0.8; }
 
 .mfp-wrap {
   top: 0;
@@ -67,7 +66,11 @@
   vertical-align: middle;
   margin: 0 auto;
   text-align: left;
-  z-index: 1045; }
+  z-index: 1045;
+  padding: 0 12px 12px;
+  background-color: #FFF;
+  border: 1px solid #d5d5b2;
+  box-shadow: 0 0 32px rgba(0, 0, 0, 0.2); }
 
 .mfp-inline-holder .mfp-content,
 .mfp-ajax-holder .mfp-content {
@@ -103,7 +106,7 @@
   display: none !important; }
 
 .mfp-preloader {
-  color: #CCC;
+  color: #555;
   position: absolute;
   top: 50%;
   width: auto;
@@ -113,9 +116,9 @@
   right: 8px;
   z-index: 1044; }
   .mfp-preloader a {
-    color: #CCC; }
+    color: #555; }
     .mfp-preloader a:hover {
-      color: #FFF; }
+      color: #333; }
 
 .mfp-s-ready .mfp-preloader {
   display: none; }
@@ -133,7 +136,9 @@ button.mfp-close, button.mfp-arrow {
   outline: none;
   padding: 0;
   z-index: 1046;
-  box-shadow: none; }
+  box-shadow: none;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation; }
 
 button::-moz-focus-inner {
   padding: 0;
@@ -149,15 +154,13 @@ button::-moz-focus-inner {
   text-decoration: none;
   text-align: center;
   opacity: 0.65;
-  filter: alpha(opacity=65);
   padding: 0 0 18px 10px;
-  color: #FFF;
+  color: #333;
   font-style: normal;
   font-size: 28px;
   font-family: Arial, Baskerville, monospace; }
   .mfp-close:hover, .mfp-close:focus {
-    opacity: 1;
-    filter: alpha(opacity=100); }
+    opacity: 1; }
   .mfp-close:active {
     top: 1px; }
 
@@ -166,8 +169,8 @@ button::-moz-focus-inner {
 
 .mfp-image-holder .mfp-close,
 .mfp-iframe-holder .mfp-close {
-  color: #FFF;
-  right: -6px;
+  color: #333;
+  right: 6px;
   text-align: right;
   padding-right: 6px;
   width: 100%; }
@@ -176,7 +179,7 @@ button::-moz-focus-inner {
   position: absolute;
   top: 0;
   right: 0;
-  color: #CCC;
+  color: #555;
   font-size: 12px;
   line-height: 18px;
   white-space: nowrap; }
@@ -184,7 +187,6 @@ button::-moz-focus-inner {
 .mfp-arrow {
   position: absolute;
   opacity: 0.65;
-  filter: alpha(opacity=65);
   margin: 0;
   top: 50%;
   margin-top: -55px;
@@ -195,11 +197,8 @@ button::-moz-focus-inner {
   .mfp-arrow:active {
     margin-top: -54px; }
   .mfp-arrow:hover, .mfp-arrow:focus {
-    opacity: 1;
-    filter: alpha(opacity=100); }
-  .mfp-arrow:before, .mfp-arrow:after,
-  .mfp-arrow .mfp-b,
-  .mfp-arrow .mfp-a {
+    opacity: 1; }
+  .mfp-arrow:before, .mfp-arrow:after {
     content: '';
     display: block;
     width: 0;
@@ -210,36 +209,30 @@ button::-moz-focus-inner {
     margin-top: 35px;
     margin-left: 35px;
     border: medium inset transparent; }
-  .mfp-arrow:after,
-  .mfp-arrow .mfp-a {
+  .mfp-arrow:after {
     border-top-width: 13px;
     border-bottom-width: 13px;
     top: 8px; }
-  .mfp-arrow:before,
-  .mfp-arrow .mfp-b {
+  .mfp-arrow:before {
     border-top-width: 21px;
     border-bottom-width: 21px;
     opacity: 0.7; }
 
 .mfp-arrow-left {
   left: 0; }
-  .mfp-arrow-left:after,
-  .mfp-arrow-left .mfp-a {
-    border-right: 17px solid #FFF;
+  .mfp-arrow-left:after {
+    border-right: 17px solid #333;
     margin-left: 31px; }
-  .mfp-arrow-left:before,
-  .mfp-arrow-left .mfp-b {
+  .mfp-arrow-left:before {
     margin-left: 25px;
     border-right: 27px solid #3F3F3F; }
 
 .mfp-arrow-right {
   right: 0; }
-  .mfp-arrow-right:after,
-  .mfp-arrow-right .mfp-a {
-    border-left: 17px solid #FFF;
+  .mfp-arrow-right:after {
+    border-left: 17px solid #333;
     margin-left: 39px; }
-  .mfp-arrow-right:before,
-  .mfp-arrow-right .mfp-b {
+  .mfp-arrow-right:before {
     border-left: 27px solid #3F3F3F; }
 
 .mfp-iframe-holder {
@@ -264,7 +257,7 @@ button::-moz-focus-inner {
     left: 0;
     width: 100%;
     height: 100%;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+    box-shadow: 0;
     background: #000; }
 
 /* Main image in popup */
@@ -292,10 +285,10 @@ img.mfp-img {
     width: auto;
     height: auto;
     z-index: -1;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-    background: #444; }
+    box-shadow: 0;
+    background: #FFF; }
   .mfp-figure small {
-    color: #BDBDBD;
+    color: #555;
     display: block;
     font-size: 12px;
     line-height: 14px; }
@@ -308,14 +301,18 @@ img.mfp-img {
   top: 100%;
   left: 0;
   width: 100%;
-  cursor: auto; }
+  cursor: auto;
+  left: 12px; }
 
 .mfp-title {
   text-align: left;
   line-height: 18px;
-  color: #F3F3F3;
+  color: #333;
   word-wrap: break-word;
-  padding-right: 36px; }
+  padding-right: 36px;
+  text-align: center;
+  font-style: italic;
+  font-size: 125%; }
 
 .mfp-image-holder .mfp-content {
   max-width: 100%; }
@@ -375,27 +372,6 @@ img.mfp-img {
   .mfp-container {
     padding-left: 6px;
     padding-right: 6px; } }
-
-.mfp-ie7 .mfp-img {
-  padding: 0; }
-
-.mfp-ie7 .mfp-bottom-bar {
-  width: 600px;
-  left: 50%;
-  margin-left: -300px;
-  margin-top: 5px;
-  padding-bottom: 5px; }
-
-.mfp-ie7 .mfp-container {
-  padding: 0; }
-
-.mfp-ie7 .mfp-content {
-  padding-top: 44px; }
-
-.mfp-ie7 .mfp-close {
-  top: 0;
-  right: 0;
-  padding-top: 0; }
 
 .slicknav_btn {
   position: relative;
@@ -530,7 +506,7 @@ img.mfp-img {
   padding: 7px 12px;
   height: 44px; }
 
-/* https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css */
+/* https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/themes/prism.min.css */
 code[class*=language-], pre[class*=language-] {
   color: #000;
   background: 0 0;
@@ -609,7 +585,8 @@ pre[class*=language-] {
 
 .token.entity {
   cursor: help; }
-/* https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/line-numbers/prism-line-numbers.min.css */
+
+/* https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/line-numbers/prism-line-numbers.min.css */
 pre.line-numbers, pre.line-numbers > code {
   position: relative; }
 
@@ -642,7 +619,8 @@ pre.line-numbers {
   display: block;
   padding-right: .8em;
   text-align: right; }
-/* https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/line-highlight/prism-line-highlight.min.css */
+
+/* https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/plugins/line-highlight/prism-line-highlight.min.css */
 pre[data-line] {
   position: relative;
   padding: 1em 0 1em 3em; }
@@ -679,6 +657,7 @@ pre[data-line] {
   content: attr(data-end);
   top: auto;
   bottom: .4em; }
+
 html {
   -ms-font-feature-settings: "liga", "dlig";
   -o-font-feature-settings: "liga", "dlig";
