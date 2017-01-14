@@ -1,9 +1,9 @@
 {% extends '_base.twig' %}
 
-{% import "_macro.twig" as macros %}
+{% import '_macro.twig' as macros %}
 
 {% block pagename %}
-    <a href="{{ record.link }}">{{ record.title|excerpt(38) }}</a>
+    <a href='{{ record.link }}'>{{ record.title|excerpt(38) }}</a>
 {% endblock %}
 
 {% block title %}
@@ -18,7 +18,7 @@
         {{ macros.image(record.values.image, record, 'sidebar') }}
     {% endif %}
 
-    <p class="subtitle">
+    <p class='subtitle'>
         {% if record.introduction is not empty %}
             {{ record.introduction|striptags('<b><em><i><strong><a><u>')|raw }}
         {% else %}

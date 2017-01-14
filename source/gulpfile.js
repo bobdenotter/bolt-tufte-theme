@@ -7,12 +7,10 @@ var sassPaths = [
     'bower_components/foundation-sites/scss',
     // 'bower_components/motion-ui/src',
     'bower_components/slicknav/scss',
-    'bower_components/highlightjs/styles'
 ];
 
 var javascriptFiles = [
     'bower_components/jquery/dist/jquery.js',
-    'bower_components/highlightjs/highlight.pack.min.js'
 ];
 
 // Set up 'sass' task.
