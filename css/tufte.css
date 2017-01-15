@@ -1123,3 +1123,7 @@ div.pagination {
         background-color: transparent; }
         div.pagination ul li:hover a {
           color: #000; }
+
+mark {
+  background-color: rgba(249, 238, 123, 0.5);
+  border-bottom: 1px solid #f9ee7b; }
