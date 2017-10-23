@@ -4,9 +4,6 @@ var $      = require('gulp-load-plugins')();
 // Define base paths for Sass and Javascript.
 var sassPaths = [
     'scss/',
-    'bower_components/foundation-sites/scss',
-    // 'bower_components/motion-ui/src',
-    'bower_components/slicknav/scss',
 ];
 
 var javascriptFiles = [
