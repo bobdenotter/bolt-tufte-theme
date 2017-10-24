@@ -16,7 +16,6 @@
   {% if app.config.get('theme/body-font') != 'serif' %}
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&amp;subset=latin-ext' rel='stylesheet'>
   {% endif %}
-  <link rel='stylesheet' href='{{ asset('css/responsive.min.css', 'theme') }}'/>
   <link rel='stylesheet' href='{{ asset('css/tufte.css', 'theme') }}'/>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
@@ -25,8 +24,11 @@
 {% if theme.boxed|default(false) %}boxed-page {% endif -%}
   '>
 
-<nav id='mainnav'>
-  <div class='container'>
+
+
+<nav id='mainnav' class="navbar" role="navigation" aria-label="dropdown navigation">
+
+  <div class="navbar-brand">
     <span class='sitename'>
       {% if app.request.get('_route') != 'homepage' %}
         <a href='{{ paths.root }}'>{{ app.config.get('general/sitename') }}</a>
@@ -37,16 +39,30 @@
           <a href='{{ paths.root }}'>{{ app.config.get('general/sitename') }}</a>
       {% endblock %}
     </span>
-    {{ menu() }}
+
+    <button class="button navbar-burger" data-target="navMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
+
+  <div class="navbar-menu" id="navMenu">
+    <div class="navbar-end">
+      {{ menu() }}
+    </div>
+  </div>
+
 </nav>
+
+
+
 
 {% if theme.boxed|default(false) %}<div class='boxed-page'>{% endif %}
 
 <div class='container'>
-  <div class='row'>
 
-      <header class='col-xxs-12'>
+      <header class='column is-8 is-offset-2'>
           <h1>
             {% block title %}
               {{ app.config.get('general/sitename') }}
@@ -54,7 +70,7 @@
           </h1>
       </header>
 
-      <article class='col-xxs-12 col-m-8'>
+      <article class='column is-8 is-offset-2 content'>
 
           {% block content %}
           {% endblock %}
@@ -64,7 +80,6 @@
       {% block aside %}
       {% endblock %}
 
-  </div>
 </div>
 
 {% if theme.boxed|default(false) %}</div>{% endif %}

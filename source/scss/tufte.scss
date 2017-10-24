@@ -11,7 +11,7 @@ html {
   -webkit-font-feature-settings: "liga", "dlig";
   font-feature-settings: "liga", "dlig";
 
-  @include widescreen {
+  @include touch {
     font-size: 14px;
   }
 
@@ -79,14 +79,14 @@ h3 {
 
 h1 {
   margin-bottom: 1.6rem;
-  font-size: 3.2rem;
+  font-size: 2rem;
 
   @include desktop {
     font-size: 2.5rem;
   }
 
-  @include mobile {
-    font-size: 2rem;
+  @include widescreen {
+    font-size: 3.6rem;
   }
 
 }
@@ -268,6 +268,16 @@ article {
 
 aside {
   padding-top: 0.8rem;
+    color: lighten(desaturate($color-text-body, 50), 20);
+
+
+  p, ol, ul {
+    font-size: 1.15rem;
+    line-height: 1.7rem;
+  }
+
+
+
 }
 
 aside.sideimage {
@@ -294,34 +304,11 @@ aside.sideimage {
 article p a,
 aside p a {
     color: $color-accent;
-    text-decoration: none;
-    // Underline via gradient background
-    background-image: linear-gradient(rgba($color-accent, 0.25) 0%, $color-accent 100%);
-    background-repeat: repeat-x;
-    background-size: 1px 1px;
-    background-position: 0 86%;
-    // Clear descendors from underline
+    text-decoration: underline;
     text-shadow: 2px 0 white, 1px 0 white, -1px 0 white, -2px 0 white;
     &:hover {
       color: darken($color-accent, 11%);
-      background-image: linear-gradient(to bottom, darken($color-accent, 6%) 0%, darken($color-accent, 6%) 100%);
     }
-    // Style selected links (or else text-shadow makes it look crazy ugly)
-    // Pseudo selectors must go separately, or they break each other
-    /*
-    &,
-    > * {
-      &::selection {
-        background-color: inherit;
-        color: $color-text-body;
-        text-shadow: none;
-      }
-      &::-moz-selection {
-        background-color: lighten($color-accent, 25%);
-        color: $color-text-body;
-        text-shadow: none;
-      }
-    } */
   }
 
 
@@ -463,7 +450,7 @@ label.margin-toggle:not(.sidenote-number) {
 }
 
 body.sans {
-  p {
+  p, li {
     font-family: $font-sans-serif;
     font-size: 1.2rem;
   }
@@ -503,99 +490,6 @@ nav#mainnav {
 
 }
 
-/* The Main menu itself.. */
-#mainmenu {
-
-  display: block;
-  float: right;
-  margin-top: 0.2rem;
-
-  ul {
-    fxloat: right;
-    margin: 0;
-    padding: 0;
-  }
-
-  ul li a {
-    display: block;
-    color: #333;
-    text-decoration: none;
-    line-height: 3rem;
-    padding: 0 1em;
-
-    @include widescreen {
-      font-size: 18px;
-      padding: 0 0.75em;
-    }
-    @include desktop {
-      font-size: 16px;
-      padding: 0 0.5em;
-    }
-
-  }
-
-  ul li {
-    position: relative;
-    list-style: none;
-    float: left;
-    margin: 0;
-    padding: 0;
-  }
-
-  ul li.current-menu-item {
-    background:#ddd
-  }
-
-  ul li:hover {
-    background:#f6f6f6
-  }
-
-  ul ul {
-    display:none;
-    position:absolute;
-    top:100%;
-    left:0;
-    background:#fff;
-    padding:0
-  }
-
-  ul ul li {
-    float:none;
-    width:200px
-  }
-
-  ul ul ul {
-    top:0;
-    left:100%
-  }
-
-  ul li:hover > ul {
-    display:block
-  }
-
-}
-
-/* Slicknav tweaks */
-
-.slicknav_menu {
-  display: none;
-  margin: 0;
-  padding: 0;
-  background-color: transparent;
-}
-
-@media screen and (max-width: 40em) {
-  /* #menu is the original menu */
-  #mainmenu {
-    display: none;
-  }
-
-  .slicknav_menu {
-    display: inline-block;
-    float: right;
-  }
-
-}
 
 /* Pagination */
 div.pagination {
@@ -642,4 +536,9 @@ div.pagination {
 mark {
   background-color: rgba(249, 238, 123, 0.5);
   border-bottom: 1px solid rgba(249, 238, 123, 1);
+}
+
+body p.small, body ul.small li {
+  font-size: 1rem;
+  line-height: 1.4rem;
 }

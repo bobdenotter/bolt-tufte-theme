@@ -4,9 +4,9 @@
 # Note: If variables do not immediately show up, clear the cache, in the Bolt Backend.
 
 # The font for the body is either "serif" or "sans-serif"
-bodyfont: serif
+bodyfont: sans-serif
 
-boxed: false
+boxed: true
 
 # Add jQuery to the rendered HTML, whether or not it's added by an extension.
 add_jquery: true
