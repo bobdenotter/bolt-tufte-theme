@@ -55,31 +55,11 @@
   </div>
 </nav>
 
-
-
-
 {% if theme.boxed|default(false) %}<div class='boxed-page'>{% endif %}
 
 <div class='container'>
-
-      <header class='column is-8 is-offset-2'>
-          <h1>
-            {% block title %}
-              {{ app.config.get('general/sitename') }}
-            {% endblock %}
-          </h1>
-      </header>
-
-      <article class='column is-8 is-offset-2 content'>
-
-          {% block content %}
-          {% endblock %}
-
-      </article>
-
-      {% block aside %}
-      {% endblock %}
-
+    {% block container %}
+    {% endblock container %}
 </div>
 
 {% if theme.boxed|default(false) %}</div>{% endif %}

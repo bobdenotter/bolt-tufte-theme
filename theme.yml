@@ -6,7 +6,7 @@
 # The font for the body is either "serif" or "sans-serif"
 bodyfont: sans-serif
 
-boxed: true
+boxed: false
 
 # Add jQuery to the rendered HTML, whether or not it's added by an extension.
 add_jquery: true

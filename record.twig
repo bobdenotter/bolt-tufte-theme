@@ -1,35 +1,40 @@
 {% extends '_base.twig' %}
-
 {% import '_macro.twig' as macros %}
 
 {% block pagename %}
     <a href='{{ record.link }}'>{{ record.title|excerpt(38) }}</a>
 {% endblock %}
 
-{% block title %}
-    {{ record.title }}
-{% endblock %}
+{% block container %}
+    <header class='column is-8 is-offset-2'>
+        <h1>
+        {{ record.title }}
+        </h1>
+    </header>
 
-{% block content %}
+    <article class='column is-8 is-offset-2 content'>
 
-    {% if record.image_position|default('main') == 'sidebar' %}
-        {{ macros.image(record.values.image, record, 'sidebar') }}
-    {% endif %}
-
-    <p class='subtitle'>
-        {% if record.introduction is not empty %}
-            {{ record.introduction|striptags('<b><em><i><strong><a><u>')|raw }}
-        {% else %}
-            {{ record.teaser(300)|striptags('<b><em><i><strong><a><u>')|raw }}
+        {% if record.image_position|default('main') == 'sidebar' %}
+            {{ macros.image(record.values.image, record, 'sidebar') }}
         {% endif %}
-    </p>
 
-    {% if record.image_position|default('main') == 'main' %}
-        {{ macros.image(record.values.image, record, 'main') }}
-    {% endif %}
+        <p class='subtitle'>
+            {% if record.introduction is not empty %}
+                {{ record.introduction|striptags('<b><em><i><strong><a><u>')|raw }}
+            {% else %}
+                {{ record.teaser(300)|striptags('<b><em><i><strong><a><u>')|raw }}
+            {% endif %}
+        </p>
 
-    {{ record.body }}
+        {% if record.image_position|default('main') == 'main' %}
+            {{ macros.image(record.values.image, record, 'main') }}
+        {% endif %}
 
-    {% include '_recordfooter.twig' %}
+        {{ record.body }}
 
-{% endblock %}
+        {% include '_recordfooter.twig' %}
+
+    </article>
+
+{% endblock container %}
+

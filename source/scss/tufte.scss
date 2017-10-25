@@ -10,6 +10,7 @@ html {
   -o-font-feature-settings: "liga", "dlig";
   -webkit-font-feature-settings: "liga", "dlig";
   font-feature-settings: "liga", "dlig";
+  -webkit-font-smoothing: auto;
 
   @include touch {
     font-size: 15px;
@@ -22,6 +23,14 @@ body {
   background-color: $color-body;
   color: $color-text-body;
   counter-reset: sidenote-counter;
+
+  &.sans {
+    p, li {
+      font-family: $font-sans-serif;
+      font-size: 1.2rem;
+    }
+  }
+
 }
 
 
@@ -438,13 +447,6 @@ label.margin-toggle:not(.sidenote-number) {
   display: none;
 }
 
-body.sans {
-  p, li {
-    font-family: $font-sans-serif;
-    font-size: 1.2rem;
-  }
-}
-
 nav#mainnav {
   border-bottom: 1px solid darken($color-body, 15);
   background: transparentize(darken($color-body, 10), 0.15);
@@ -452,6 +454,7 @@ nav#mainnav {
   position: fixed;
   z-index: 100;
   width: 100%;
+  top: 0;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
   font-size: 16px;
 
@@ -461,6 +464,10 @@ nav#mainnav {
     line-height: 2.4em;
     position: absolute;
     margin-left: 0.75rem;
+
+    a {
+      font-family: $font-serif;
+    }
 
     @include desktop {
       font-size: 1.5em;
@@ -473,6 +480,7 @@ nav#mainnav {
   }
 
   a {
+    font-family: $font-sans-serif;
     color: #222;
     text-decoration: none;
   }
