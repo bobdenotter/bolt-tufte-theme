@@ -12,7 +12,7 @@ html {
   font-feature-settings: "liga", "dlig";
 
   @include touch {
-    font-size: 14px;
+    font-size: 15px;
   }
 
 }
@@ -24,13 +24,6 @@ body {
   counter-reset: sidenote-counter;
 }
 
-div.container {
-  max-width: 1140px;
-  width: calc(100% - 8rem);
-  @include mobile {
-    width: calc(100% - 3rem);
-  }
-}
 
 body.boxed-page {
   background: desaturate(darken($color-body, 15), 25); // Todo: make configurable color
@@ -47,14 +40,11 @@ div.boxed-page {
 header {
 
   h1 {
-    margin-top: 9rem;
+    margin-top: 7rem;
 
-    @include widescreen {
-      margin-top: 7rem;
-    }
-
-    @include mobile {
-      margin-top: 6rem;
+    @include touch {
+      margin-top: 4.8rem;
+      margin-bottom: 0;
     }
 
   }
@@ -143,7 +133,6 @@ p.meta {
   }
 
 }
-
 
 table {
   width: 100%;
@@ -468,19 +457,19 @@ nav#mainnav {
 
   span.sitename,
   span.pagename {
-    font-size: 1.6em;
-    line-height: 2em;
+    font-size: 1.4em;
+    line-height: 2.4em;
     position: absolute;
+    margin-left: 0.75rem;
 
+    @include desktop {
+      font-size: 1.5em;
+      line-height: 2.2em;
+    }
     @include widescreen {
-      font-size: 1.4em;
+      font-size: 1.6em;
       line-height: 2.1em;
     }
-    @include desktop {
-      font-size: 1.2em;
-      line-height: 2.3em;
-    }
-
   }
 
   a {

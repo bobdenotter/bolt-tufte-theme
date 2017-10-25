@@ -27,32 +27,32 @@
 
 
 <nav id='mainnav' class="navbar" role="navigation" aria-label="dropdown navigation">
-
-  <div class="navbar-brand">
-    <span class='sitename'>
-      {% if app.request.get('_route') != 'homepage' %}
-        <a href='{{ paths.root }}'>{{ app.config.get('general/sitename') }}</a>
-      {% endif %}
-    </span>
-    <span class='pagename'>
-      {% block pagename %}
+    <div class="container">
+    <div class="navbar-brand">
+      <span class='sitename'>
+        {% if app.request.get('_route') != 'homepage' %}
           <a href='{{ paths.root }}'>{{ app.config.get('general/sitename') }}</a>
-      {% endblock %}
-    </span>
+        {% endif %}
+      </span>
+      <span class='pagename'>
+        {% block pagename %}
+            <a href='{{ paths.root }}'>{{ app.config.get('general/sitename') }}</a>
+        {% endblock %}
+      </span>
 
-    <button class="button navbar-burger" data-target="navMenu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
+      <button class="button navbar-burger" data-target="navMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
 
-  <div class="navbar-menu" id="navMenu">
-    <div class="navbar-end">
-      {{ menu() }}
+    <div class="navbar-menu" id="navMenu">
+      <div class="navbar-end">
+        {{ menu() }}
+      </div>
     </div>
   </div>
-
 </nav>
 
 

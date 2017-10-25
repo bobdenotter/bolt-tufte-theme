@@ -1,7 +1,7 @@
 
 
 // Show the current breakpoints in the lower left corner.
-$debug-breakpoint: false;
+$debug-breakpoint: true;
 
 // Colors
 $color-accent: rgb(0, 20, 160);
@@ -18,6 +18,9 @@ $font-serif       : 'Cardo', Palatino, "Palatino Linotype", "Palatino LT STD", "
 
 // 1. Import the initial variables
 @import "../node_modules/bulma/sass/utilities/initial-variables";
+
+$tablet: 767px;
+$fullhd: 2000px;
 
 $primary: $color-accent;
 $primary-invert: $color-body;
