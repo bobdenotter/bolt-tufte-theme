@@ -6,18 +6,30 @@
 @import 'prism';
 
 // ---- Grid ------
+// div {
+//   border: 1px dashed #999;
+//   padding: 3px;
+// }
 
 body.detail .grid {
   display: grid;
-  border: 1px dashed #999;
-  grid-template-columns: auto;
+  grid-template-columns: 2% auto 2%;
   grid-template-rows: auto;
 
+  @include tablet {
+    grid-template-columns: 1fr 6fr 1fr;
+  }
+  @include desktop {
+    grid-template-columns: 1fr 4fr 1fr;
+  }
+
   header {
+    grid-column: 2 / 3;
     grid-row: 1 / 2;
   }
 
   article {
+    grid-column: 2 / 3;
     grid-row: 2 / 3;
   }
 
@@ -58,7 +70,7 @@ body {
 
   div.boxed-page {
     margin: 0 auto 2rem;
-    max-width: 1240px;
+    max-width: 1140px;
     border: 1px solid darken($color-body, 15);
     box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
     background-color: $color-body;
@@ -391,13 +403,17 @@ samp {
   background-color: lighten($color-body, 10);
   border: 1px solid darken($color-body, 20);
   display: block;
+  margin: 0 -4em;
 
   a {
     background: none;
+    background-color: desaturate(darken($color-body, 10), 40);
+    display: block;
   }
 
   img {
     display: block;
+    margin: 0 auto;
   }
 
   span {

@@ -14,7 +14,7 @@
         </h1>
     </header>
 
-    <article>
+    <article class="content">
 
         {% if record.image_position|default('main') == 'sidebar' %}
             {{ macros.image(record.values.image, record, 'sidebar') }}
