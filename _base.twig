@@ -22,9 +22,8 @@
 <body class='
 {%- if theme.bodyfont != 'serif' %}sans {% endif %}
 {% if theme.boxed|default(false) %}boxed-page {% endif -%}
-  '>
-
-
+{% block bodyclass %}generic{% endblock %}
+'>
 
 <nav id='mainnav' class="navbar" role="navigation" aria-label="dropdown navigation">
     <div class="container">
@@ -57,7 +56,7 @@
 
 {% if theme.boxed|default(false) %}<div class='boxed-page'>{% endif %}
 
-<div class='container'>
+<div class='container grid'>
     {% block container %}
     {% endblock container %}
 </div>

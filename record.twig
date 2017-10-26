@@ -1,18 +1,20 @@
 {% extends '_base.twig' %}
 {% import '_macro.twig' as macros %}
 
+{% block bodyclass %}detail{% endblock %}
+
 {% block pagename %}
     <a href='{{ record.link }}'>{{ record.title|excerpt(38) }}</a>
 {% endblock %}
 
 {% block container %}
-    <header class='column is-8 is-offset-2'>
+    <header>
         <h1>
         {{ record.title }}
         </h1>
     </header>
 
-    <article class='column is-8 is-offset-2 content'>
+    <article>
 
         {% if record.image_position|default('main') == 'sidebar' %}
             {{ macros.image(record.values.image, record, 'sidebar') }}
