@@ -179,7 +179,7 @@ h3 {
   }
 }
 
-.content h3 {
+.content h3, aside h3 {
   font-style: italic;
   font-size: 1.7rem;
   margin-bottom: 0;
@@ -541,8 +541,12 @@ span.newthought {
   font-size: 1.2em;
 }
 
-input.margin-toggle {
-  display: none;
+input[type="search"] {
+  border: 1px solid darken($color-body, 25);
+  padding: 4px;
+  font-family: $font-sans-serif;
+  font-size: 1.0rem;
+  height: 2rem;
 }
 
 label.sidenote-number {

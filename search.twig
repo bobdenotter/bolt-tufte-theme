@@ -6,11 +6,10 @@
 {% block container %}
     <header>
         <h1>
-            {{ app.config.get('general/sitename') }}
+            Search results: {{ app.request.get('search') }}
         </h1>
     </header>
 
-    {% setcontent records = 'entries/latest/6' allowpaging %}
     {% set record = records|first %}
 
         <article class='content'>
@@ -23,7 +22,7 @@
             {{ macros.image(record.values.image, record, 'main') }}
             {% endif %}
 
-            {{ record.teaser|default('<p>' ~ record.excerpt(320) ~ '</p>') }}
+            {{ record.teaser|default('<p>' ~ record.excerpt(320) ~ '</p>')|raw }}
 
             <p><a href='{{ record.link }}'>Continue reading &raquo;</a></p>
 
@@ -44,7 +43,7 @@
 
             {% include '_recordfooter.twig' with {'compact': true } %}
 
-            {{ record.teaser|default('<p>' ~ record.excerpt(320) ~ '</p>') }}
+            {{ record.teaser|default('<p>' ~ record.excerpt(320) ~ '</p>')|raw }}
 
             <p><a href='{{ record.link }}'>Continue reading &raquo;</a></p>
 
@@ -55,6 +54,8 @@
     {% endfor %}
 
     {{ pager() }}
+
+
 
     </section>
 
