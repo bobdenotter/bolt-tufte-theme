@@ -1,0 +1,48 @@
+{% extends '_base.twig' %}
+{% import '_macro.twig' as macros %}
+
+{% block bodyclass %}homepage{% endblock %}
+
+{% block container %}
+    <header>
+        <h1>
+            {{ contenttype }}
+        </h1>
+    </header>
+
+    <section>
+    {% for record in records|slice(1) %}
+
+        <article class='content'>
+
+            {% if record.image!='' %}
+            {{ macros.image(record.values.image, record, 'sidebar') }}
+            {% endif %}
+
+            <h2><a href='{{ record.link() }}'>{{ record.title }}</a></h2>
+
+            {% include '_recordfooter.twig' with {'compact': true } %}
+
+            {{ record.teaser|default('<p>' ~ record.excerpt(320) ~ '</p>') }}
+
+            <p><a href='{{ record.link }}'>Continue reading &raquo;</a></p>
+
+            <hr>
+
+        </article>
+
+    {% endfor %}
+
+    {{ pager() }}
+
+    </section>
+
+
+
+
+
+
+
+{% endblock container %}
+
+
