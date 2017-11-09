@@ -1,12 +1,12 @@
 {% extends '_base.twig' %}
-{% import '_macro.twig' as macros %}
+{% import 'partials/_macro.twig' as macros %}
 
 {% block bodyclass %}homepage{% endblock %}
 
 {% block container %}
     <header>
         <h1>
-            {{ contenttype }}
+            {% block title %}{{ contenttype }}{% endblock %}
         </h1>
     </header>
 
@@ -21,9 +21,9 @@
 
             <h2><a href='{{ record.link() }}'>{{ record.title }}</a></h2>
 
-            {% include '_recordfooter.twig' with {'compact': true } %}
+            {% include 'partials/_recordfooter.twig' with {'compact': true } %}
 
-            {{ record.teaser|default('<p>' ~ record.excerpt(320) ~ '</p>') }}
+            {{ record.teaser|default('<p>' ~ record.excerpt(320) ~ '</p>')|raw }}
 
             <p><a href='{{ record.link }}'>Continue reading &raquo;</a></p>
 

@@ -109,6 +109,9 @@ body {
     p.meta {
       font-family: $font-serif;
       font-size: 1.0rem;
+      @include desktop {
+        font-size: 1.2rem;
+      }
     }
   }
 
@@ -140,7 +143,6 @@ header {
 h1,
 h2,
 h3 {
-
   font-weight: 400;
   line-height: 1.2;
 
@@ -197,7 +199,6 @@ body p.subtitle {
     font-size: 1.3rem;
     line-height: 2rem;
   }
-
 }
 
 p {
@@ -217,6 +218,10 @@ p.meta {
   color: #555;
   margin: 0.7rem 0;
   font-style: italic;
+
+  @include desktop {
+    font-size: 1.3rem;
+  }
 
   a {
     &:hover {
@@ -284,7 +289,7 @@ table.booktabs {
     padding-top: 0.65ex;
   }
 
-   /* add space between thead row and tbody */
+  /* add space between thead row and tbody */
   td {
     padding-left: 0.5em;
     padding-right: 0.5em;
@@ -343,7 +348,6 @@ article {
   @include desktop {
     padding-right: 2rem;
   }
-
 }
 
 aside {
@@ -361,7 +365,6 @@ aside {
     line-height: 1.4rem !important;
 
   }
-
 }
 
 div.sideimage {
@@ -397,19 +400,17 @@ div.sideimage {
       margin-right: calc(-50% - 3rem);
     }
   }
-
 }
 
 article p a,
 aside p a {
-    color: $color-accent;
-    text-decoration: underline;
-    text-shadow: 2px 0 white, 1px 0 white, -1px 0 white, -2px 0 white;
-    &:hover {
-      color: darken($color-accent, 11%);
-    }
+  color: $color-accent;
+  text-decoration: underline;
+  text-shadow: 2px 0 white, 1px 0 white, -1px 0 white, -2px 0 white;
+  &:hover {
+    color: darken($color-accent, 11%);
   }
-
+}
 
 section {
   padding-top: 1rem;
@@ -460,16 +461,12 @@ blockquote {
     font-size: 1.1rem;
     font-style: normal;
     text-align: right;
-
   }
-
 }
 
 samp {
   background-color: transparent;
 }
-
-
 
 .table-caption {
   float: right;
@@ -482,7 +479,6 @@ samp {
   line-height: 1.6;
 }
 
-
 .imageholder {
   padding: 4px;
   background-color: lighten($color-body, 10);
@@ -490,8 +486,8 @@ samp {
   display: block;
 
   @include tablet {
-    body.detail & {
-      margin: 0 -4em;
+    body.detail &.wide {
+      margin: 0 -5em;
     }
   }
 
@@ -513,9 +509,7 @@ samp {
     color: #666;
     margin: 0.5em 0;
   }
-
 }
-
 
 code {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
@@ -636,7 +630,6 @@ nav#mainnav {
     color: #222;
     text-decoration: none;
   }
-
 }
 
 
