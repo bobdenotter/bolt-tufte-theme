@@ -108,7 +108,7 @@ body {
     }
     p.meta {
       font-family: $font-serif;
-      font-size: 1.2rem;
+      font-size: 1.0rem;
     }
   }
 
@@ -542,25 +542,45 @@ h1 code, h2 code, h3 code {
   background-color: rgb(244, 243, 236);
   white-space: pre-wrap;
   font-size: 0.85rem;
-  margin-right: -160px;
+  overflow-x: scroll;
 
-  // width: 120%
   @include touch {
     margin-right: -260px;
   }
 
-  .code {
-    overflow-x: scroll;
+  @include desktop {
+    max-width: 608px;
+
+    &.wide {
+      margin-left: -100px;
+      margin-right: -100px;
+      max-width: 808px;
+    }
   }
-}
 
-.fullwidth {
-  max-width: 90%;
-}
+  @include widescreen {
+    max-width: 736px;
 
-span.newthought {
-  font-variant: small-caps;
-  font-size: 1.2em;
+    &.wide {
+      margin-left: -160px;
+      margin-right: -160px;
+      max-width: 1056px;
+    }
+  }
+
+  .line-numbers-sizer {
+    height: 0; // We don't need this.
+  }
+
+  .number {
+    background-color: transparent;
+    font-size: 1em;
+    height: 1em;
+    margin: 0;
+    padding: 0;
+    align-items: baseline;
+    min-width: 0.3em;
+  }
 }
 
 input[type="search"] {

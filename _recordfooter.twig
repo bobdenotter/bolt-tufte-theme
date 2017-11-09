@@ -2,10 +2,13 @@
 
 {% if compact|default('false') == true %}
 
+{% if record.editlink() %}
+    <p>
+        <a class="button" href='{{ record.editlink() }}'>Edit</a>
+    </p>
+{% endif %}
+
 <p class='meta'>
-    {% if record.editlink() %}
-        <span class='edit-link'><a href='{{ record.editlink() }}'><strong>Edit</strong></a></span> -
-    {% endif %}
     {{ __('Written by <em>%name%</em> on %date%', {
         '%name%': record.user.displayname|default(__('Unknown')),
         '%date%': record.datepublish|localedatetime("%A %B %e, %Y")

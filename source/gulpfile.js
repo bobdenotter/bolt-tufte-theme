@@ -11,7 +11,7 @@ var sassPaths = [
 ];
 
 var javascriptFiles = [
-    'bower_components/jquery/dist/jquery.js',
+    'node_modules/jquery/dist/jquery.js',
 ];
 
 // Set up 'sass' task.
