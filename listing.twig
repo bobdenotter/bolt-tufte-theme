@@ -21,7 +21,7 @@
 
             <h2><a href='{{ record.link() }}'>{{ record.title }}</a></h2>
 
-            {% include 'partials/_recordfooter.twig' with {'compact': true } %}
+            {% include 'partials/_recordfooter.twig' %}
 
             {{ record.teaser|default('<p>' ~ record.excerpt(320) ~ '</p>')|raw }}
 

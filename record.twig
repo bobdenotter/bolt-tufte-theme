@@ -39,7 +39,7 @@
             {{ block('sub_fields', 'partials/_sub_fields.twig') }}
         {% endwith %}
 
-        {% include 'partials/_recordfooter.twig' %}
+        {% include 'partials/_recordfooter.twig' with {'verbose': true } %}
 
     </article>
 
