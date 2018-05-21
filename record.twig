@@ -1,41 +1,47 @@
 {% extends '_base.twig' %}
+{% import 'partials/_macro.twig' as macros %}
 
-{% import '_macro.twig' as macros %}
+{% block bodyclass %}detail{% endblock %}
 
 {% block pagename %}
     <a href='{{ record.link }}'>{{ record.title|excerpt(38) }}</a>
 {% endblock %}
 
-{% block title %}
-    {{ record.title }}
-{% endblock %}
+{% block container %}
+    <header>
+        <h1>
+        {{ record.title }}
+        </h1>
+    </header>
 
-{% block content %}
+    <article class="content">
 
-    <section>
-
-    {% if record.image_position|default('main') == 'sidebar' %}
-        {{ macros.image(record.values.image, record, 'sidebar') }}
-    {% endif %}
-
-    <p class='subtitle'>
-        {% if record.introduction is not empty %}
-            {{ record.introduction|striptags('<b><em><i><strong><a><u>')|raw }}
-        {% else %}
-            {{ record.teaser(300)|striptags('<b><em><i><strong><a><u>')|raw }}
+        {% if record.image_position|default('main') == 'sidebar' %}
+            {{ macros.image(record.values.image, record, 'sidebar') }}
         {% endif %}
-    </p>
 
-    {% if record.image_position|default('main') == 'main' %}
-        {{ macros.image(record.values.image, record, 'main') }}
-    {% endif %}
+        <p class='subtitle'>
+            {% if record.introduction is not empty %}
+                {{ record.introduction|striptags('<b><em><i><strong><a><u>')|raw }}
+            {% else %}
+                {{ record.teaser(300)|striptags('<b><em><i><strong><a><u>')|raw }}
+            {% endif %}
+        </p>
 
+        {% if record.image_position|default('main') == 'main' %}
+            {{ macros.image(record.values.image, record, 'main') }}
+        {% endif %}
 
-    {{ record.body }}
+        {# Output all fields, in the order as defined in the contenttype.
+        To change the generated html and configure the options, see:
+        https://docs.bolt.cm/templating #}
+        {% with { 'record': record, 'common': true, 'extended': true, 'repeaters': true, 'blocks': true, 'exclude': ['image'] } %}
+            {{ block('sub_fields', 'partials/_sub_fields.twig') }}
+        {% endwith %}
 
-    {% include '_recordfooter.twig' %}
+        {% include 'partials/_recordfooter.twig' with {'verbose': true } %}
 
+    </article>
 
-    </section>
+{% endblock container %}
 
-{% endblock %}
