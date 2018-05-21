@@ -1,17 +1,5 @@
 {# This file is inserted as the 'footer' of each listed record. #}
-
-{% if verbose|default('false') == false %}
-
-    <p class='meta'>
-        {{ __('Written by <em>%name%</em> on %date%', {
-            '%name%': record.user.displayname|default(__('Unknown')),
-            '%date%': record.datepublish|localedatetime("%A %B %e, %Y")
-        }) }}
-        -
-        <a href='{{ record.link }}'> &para;</a>
-    </p>
-
-{% else %}
+{% if verbose|default() == true %}
 
     {% if record.editlink() %}
         <p>
@@ -26,6 +14,17 @@
         {# include the 'default' links to taxonomies. Check the documentation for ways to modify and customize
         what is output to the browser: http://docs.bolt.cm/taxonomies#taxonomies #}
         {% include '_sub_taxonomylinks.twig' with {record: record} %}
+    </p>
+
+{% else %}
+
+    <p class='meta'>
+        {{ __('Written by <em>%name%</em> on %date%', {
+            '%name%': record.user.displayname|default(__('Unknown')),
+            '%date%': record.datepublish|localedatetime("%A %B %e, %Y")
+        }) }}
+        -
+        <a href='{{ record.link }}'> &para;</a>
     </p>
 
 {% endif %}
