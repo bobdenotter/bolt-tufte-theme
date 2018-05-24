@@ -5,10 +5,16 @@ var argv = require('yargs').argv;
 // Check for --production flag
 var PRODUCTION = !!(argv.production);
 
+// Browsers to target when prefixing CSS.
+var COMPATIBILITY = ['last 2 versions', 'ie >= 9'];
+
 // Define base paths for Sass and Javascript.
-var sassPaths = [
-    'scss/',
-];
+// File paths to various assets are defined here.
+var PATHS = {
+  sass: [
+    'node_modules',
+  ]
+};
 
 var javascriptFiles = [
   'javascript/tufte.js',
@@ -39,11 +45,11 @@ gulp.task('sass', function() {
   return gulp.src('scss/tufte.scss')
     .pipe($.sourcemaps.init())
     .pipe($.sass({
-      includePaths: sassPaths
+      includePaths: PATHS.sass
     })
       .on('error', $.sass.logError))
     .pipe($.autoprefixer({
-      browsers: ['last 2 versions', 'ie >= 9']
+      browsers: COMPATIBILITY
     }))
     .pipe($.if(PRODUCTION, $.cssnano()))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
@@ -58,20 +64,15 @@ gulp.task('compress', function() {
     .pipe(gulp.dest('../javascript'));
 });
 
-gulp.task('copyjavascript', function() {
-   gulp.src(javascriptFiles)
-   .pipe(gulp.dest('javascript'));
-});
-
 gulp.task('setproduction', function() {
   PRODUCTION = true;
 });
 
 // Set up 'default' task, with watches.
-gulp.task('default', ['sass', 'compress'], function() {
+gulp.task('default', ['compress', 'sass'], function() {
   gulp.watch(['scss/**/*.scss'], ['sass']);
   gulp.watch(['javascript/**/*.js'], ['compress']);
 });
 
 // Set up 'build' task, without watches and force 'production'.
-gulp.task('build', ['setproduction','sass', 'compress']);
+gulp.task('build', ['setproduction', 'compress', 'sass']);
