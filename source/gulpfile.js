@@ -64,15 +64,16 @@ gulp.task('compress', function() {
     .pipe(gulp.dest('../javascript'));
 });
 
-gulp.task('setproduction', function() {
+gulp.task('setproduction', function(done) {
   PRODUCTION = true;
+  done();
 });
 
 // Set up 'default' task, with watches.
-gulp.task('default', ['compress', 'sass'], function() {
+gulp.task('default', gulp.series(gulp.parallel('compress', 'sass')), function() {
   gulp.watch(['scss/**/*.scss'], ['sass']);
   gulp.watch(['javascript/**/*.js'], ['compress']);
 });
 
 // Set up 'build' task, without watches and force 'production'.
-gulp.task('build', ['setproduction', 'compress', 'sass']);
+gulp.task('build', gulp.series(gulp.parallel('setproduction', 'compress', 'sass')));
