@@ -70,10 +70,10 @@ gulp.task('setproduction', function(done) {
 });
 
 // Set up 'default' task, with watches.
-gulp.task('default', gulp.series(gulp.parallel('compress', 'sass')), function() {
-  gulp.watch(['scss/**/*.scss'], ['sass']);
-  gulp.watch(['javascript/**/*.js'], ['compress']);
-});
+gulp.task('default', gulp.series(gulp.parallel('compress', 'sass'), function watch() {
+  gulp.watch(['scss/**/*.scss'], gulp.series('sass'));
+  gulp.watch(['javascript/**/*.js'], gulp.series('compress'));
+}));
 
 // Set up 'build' task, without watches and force 'production'.
 gulp.task('build', gulp.series(gulp.parallel('setproduction', 'compress', 'sass')));
