@@ -6,22 +6,22 @@
         {{ seo.title() }}
       {% else %}
         {% if record.title is defined %}{{ record.title|striptags }} | {% endif %}
-        {{ app.config.get('general/sitename') }}
-        {% if record.title is not defined and app.config.get('general/payoff') %}
-          | {{ app.config.get('general/payoff') }}
+        {{ config.get('general/sitename') }}
+        {% if record.title is not defined and config.get('general/payoff') %}
+          | {{ config.get('general/payoff') }}
         {% endif %}
       {% endif %}
   </title>
 
-  {% if app.config.get('theme/body-font') != 'serif' %}
+  {% if config.get('theme/body-font') != 'serif' %}
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&amp;subset=latin-ext' rel='stylesheet'>
   {% endif %}
   <link rel='stylesheet' href='{{ asset('css/tufte.css', 'theme') }}'/>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
 <body class='
-{%- if theme.bodyfont != 'serif' %}sans {% endif %}
-{% if theme.boxed|default(false) %}boxed-page {% endif -%}
+{#{%- if theme.bodyfont != 'serif' %}sans {% endif %}#}
+{#{% if theme.boxed|default(false) %}boxed-page {% endif -%}#}
 {% block bodyclass %}generic{% endblock %}
 '>
 
@@ -30,12 +30,12 @@
     <div class="navbar-brand">
       <span class='sitename'>
         {% if app.request.get('_route') != 'homepage' %}
-          <a href='{{ paths.root }}'>{{ app.config.get('general/sitename') }}</a>
+          <a href='{{ path('homepage') }}'>{{ config.get('general/sitename') }}</a>
         {% endif %}
       </span>
       <span class='pagename'>
         {% block pagename %}
-            <a href='{{ paths.root }}'>{{ app.config.get('general/sitename') }}</a>
+            <a href='{{ path('homepage') }}'>{{ config.get('general/sitename') }}</a>
         {% endblock %}
       </span>
 

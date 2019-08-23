@@ -15,8 +15,8 @@
 
         <article class='content'>
 
-            {% if record.image!='' %}
-            {{ macros.image(record.values.image, record, 'sidebar') }}
+            {% if record|image %}
+            {{ macros.image(record|image, record, 'sidebar') }}
             {% endif %}
 
             <h2><a href='{{ record.link() }}'>{{ record.title }}</a></h2>
@@ -33,7 +33,7 @@
 
     {% endfor %}
 
-    {{ pager() }}
+    {{ pager(records, template = 'helpers/_pager_bulma.html.twig') }}
 
     </section>
 

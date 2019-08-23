@@ -6,7 +6,7 @@
 {% block container %}
     <header>
         <h1>
-            {{ app.config.get('general/sitename') }}
+            {{ config.get('general/sitename') }}
         </h1>
     </header>
 
@@ -19,8 +19,8 @@
 
             {% include 'partials/_recordfooter.twig' %}
 
-            {% if record.image!='' %}
-            {{ macros.image(record.values.image, record, 'main') }}
+            {% if record|image %}
+            {{ macros.image(record|image, record, 'main') }}
             {% endif %}
 
             {{ record.teaser|default('<p>' ~ record.excerpt(320) ~ '</p>') }}
@@ -36,8 +36,8 @@
 
         <article class='content'>
 
-            {% if record.image!='' %}
-            {{ macros.image(record.values.image, record, 'sidebar') }}
+            {% if record|image %}
+            {{ macros.image(record|image, record, 'sidebar') }}
             {% endif %}
 
             <h2><a href='{{ record.link() }}'>{{ record.title }}</a></h2>
@@ -54,7 +54,7 @@
 
     {% endfor %}
 
-    {{ pager() }}
+{#    {{ pager(records, template = 'helpers/_pager_bulma.twig') }}#}
 
     </section>
 
