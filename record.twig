@@ -4,39 +4,40 @@
 {% block bodyclass %}detail{% endblock %}
 
 {% block pagename %}
-    <a href='{{ record.link }}'>{{ record.title|excerpt(38) }}</a>
+    <a href='{{ record|link }}'>{{ record.title|excerpt(38) }}</a>
 {% endblock %}
 
 {% block container %}
     <header>
         <h1>
-        {{ record.title }}
+        {{ record|title }}
         </h1>
     </header>
 
     <article class="content">
 
         {% if record.image_position|default('main') == 'sidebar' %}
-            {{ macros.image(record.values.image, record, 'sidebar') }}
+            {{ macros.image(record|image, record, 'sidebar') }}
         {% endif %}
 
         <p class='subtitle'>
             {% if record.introduction is not empty %}
                 {{ record.introduction|striptags('<b><em><i><strong><a><u>')|raw }}
             {% else %}
-                {{ record.teaser(300)|striptags('<b><em><i><strong><a><u>')|raw }}
+                {{ record.teaser|striptags('<b><em><i><strong><a><u>')|raw }}
             {% endif %}
         </p>
 
         {% if record.image_position|default('main') == 'main' %}
-            {{ macros.image(record.values.image, record, 'main') }}
+            {{ macros.image(record|image, record, 'main') }}
         {% endif %}
 
         {# Output all fields, in the order as defined in the contenttype.
         To change the generated html and configure the options, see:
         https://docs.bolt.cm/templating #}
+
         {% with { 'record': record, 'common': true, 'extended': true, 'repeaters': true, 'blocks': true, 'exclude': ['image'] } %}
-            {{ block('sub_fields', 'partials/_sub_fields.twig') }}
+            {{ block('sub_fields', 'helpers/_fields.twig') }}
         {% endwith %}
 
         {% include 'partials/_recordfooter.twig' with {'verbose': true } %}

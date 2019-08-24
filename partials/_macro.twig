@@ -10,14 +10,15 @@
         {% set class = '' %}
     {% endif %}
 
-    {% if (img.file|default() is not empty) %}
+    {% if (img.filename|default() is not empty) %}
+
         {% if class == 'sideimage' %}
             <div class='sideimage'>
         {% endif %}
 
             <span class='imageholder'>
-                <a href='{{ thumbnail(img.file, 1600, 1200) }}' title='{{ img.title|default('') }}'>
-                    <img src='{{ thumbnail(img.file, w, h) }}' alt='{{ img.alt|default('') }}'>
+                <a href='{{ thumbnail(img.filename, 1600, 1200) }}' title='{{ img.title|default('') }}'>
+                    <img src='{{ thumbnail(img.filename, w, h, fit = 'crop') }}' alt='{{ img.alt|default('') }}'>
                 </a>
                 {% if img.title is defined and img.title is not empty %}
                     <span class='note'>{{ img.title }}</span>

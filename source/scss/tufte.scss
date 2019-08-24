@@ -392,6 +392,7 @@ div.sideimage {
       width: 47%;
       position: absolute;
       right: 0;
+      margin-top: 0;
       margin-right: calc(-42% - 3rem);
     }
   }
@@ -488,6 +489,7 @@ samp {
 
 .imageholder {
   padding: 4px;
+  margin: 1.5rem 0;
   background-color: lighten($color-body, 10);
   border: 1px solid darken($color-body, 20);
   display: block;
@@ -644,46 +646,14 @@ nav#mainnav {
 
 
 /* Pagination */
-div.pagination {
-  margin: 2rem 0;
+ul.pagination-list li {
+  list-style: none;
+}
 
-  ul {
-
-    margin: 0;
-    padding: 0;
-
-    li {
-      list-style: none;
-      display: inline-block;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: 2px;
-      background-color: rgba(0, 0, 0, 0.1);
-      padding: 0;
-      margin: 0 2px;
-
-      &.active {
-        border: 1px solid rgba(0, 0, 0, 0.22);
-        background-color: rgba(0, 0, 0, 0.21);
-      }
-
-      a,
-      a:active,
-      a:visited {
-        display: inline-block;
-        padding: 0.4rem 0.9rem;
-        text-decoration: none;
-        color: #333;
-      }
-
-      &:hover {
-        background-color: transparent;
-        a {
-          color: #000;
-        }
-      }
-
-    }
-  }
+.pagination-link.is-current {
+  background-color: #CCC;
+  border-color: #BBB;
+  color: #000;
 }
 
 mark {

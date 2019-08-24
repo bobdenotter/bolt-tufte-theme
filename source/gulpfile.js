@@ -18,7 +18,7 @@ var PATHS = {
 
 var javascriptFiles = [
   'javascript/tufte.js',
-  'node_modules/jquery/dist/jquery.js',
+  // 'node_modules/jquery/dist/jquery.js',
   // 'node_modules/baguettebox.js/src/baguetteBox.js',
   'node_modules/prismjs/prism.js',
   'node_modules/prismjs/components/prism-apacheconf.js',
@@ -48,9 +48,7 @@ gulp.task('sass', function() {
       includePaths: PATHS.sass
     })
       .on('error', $.sass.logError))
-    .pipe($.autoprefixer({
-      browsers: COMPATIBILITY
-    }))
+    .pipe($.autoprefixer())
     .pipe($.if(PRODUCTION, $.cssnano()))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
     .pipe(gulp.dest('../css'));

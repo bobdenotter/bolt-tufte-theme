@@ -8,6 +8,5 @@ bodyfont: sans-serif
 
 boxed: false
 
-
 # Show the search box in the header
 search: true

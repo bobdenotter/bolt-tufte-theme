@@ -1,0 +1,25 @@
+{
+    "name": "bobdenotter/bolt-tufte-theme",
+    "description": "🧾 Tufte Theme for Bolt",
+    "type": "bolt-theme",
+    "homepage": "http://boltcms.io",
+    "keywords": [
+        "Theme",
+        "Bolt",
+        "Tufte",
+        "Bulma"
+    ],
+    "license": "MIT",
+    "require": {
+        "twig/twig": "^2.0"
+    },
+    "conflict": {
+        "bolt/bolt": "< 3.999"
+    },
+    "extra": {
+        "screenshots": [
+            "screenshots/screenshot1.png",
+            "screenshots/screenshot2.png"
+        ]
+    }
+}

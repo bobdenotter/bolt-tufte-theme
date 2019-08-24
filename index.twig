@@ -15,7 +15,7 @@
 
         <article class='content'>
 
-            <h2><a href='{{ record.link() }}'>{{ record.title }}</a></h2>
+            <h2><a href='{{ record|link }}'>{{ record|title }}</a></h2>
 
             {% include 'partials/_recordfooter.twig' %}
 
@@ -23,9 +23,9 @@
             {{ macros.image(record|image, record, 'main') }}
             {% endif %}
 
-            {{ record.teaser|default('<p>' ~ record.excerpt(320) ~ '</p>') }}
+            {{ record.teaser|default('<p>' ~ record|excerpt(320) ~ '</p>') }}
 
-            <p><a href='{{ record.link }}'>Continue reading &raquo;</a></p>
+            <p><a href='{{ record|link }}'>Continue reading &raquo;</a></p>
 
             <hr>
 
@@ -40,13 +40,13 @@
             {{ macros.image(record|image, record, 'sidebar') }}
             {% endif %}
 
-            <h2><a href='{{ record.link() }}'>{{ record.title }}</a></h2>
+            <h2><a href='{{ record|link }}'>{{ record|title }}</a></h2>
 
             {% include 'partials/_recordfooter.twig' %}
 
-            {{ record.teaser|default('<p>' ~ record.excerpt(320) ~ '</p>') }}
+            {{ record.teaser|default('<p>' ~ record|excerpt(320) ~ '</p>') }}
 
-            <p><a href='{{ record.link }}'>Continue reading &raquo;</a></p>
+            <p><a href='{{ record|link }}'>Continue reading &raquo;</a></p>
 
             <hr>
 
@@ -60,8 +60,8 @@
 
     <aside>
         {# let's see if we have a 'block' resource type, with 'about' for a slug? #}
-        {% setcontent about = 'blocks/about-us' %}
-        {% if about is not empty %}
+        {% setcontent about = 'blocks/about' %}
+        {% if about %}
             <h3>{{ about.title }}</h3>
             {{ about.content }}
             {% if about.contentlink is not empty %}
@@ -71,9 +71,9 @@
 
             {# otherwise we might have a 'page' with slug 'about'? #}
             {% setcontent about = 'page/about' %}
-            {% if about is not empty %}
-                {{ about.excerpt(200) }}
-                <a href='{{ about.link() }}'>Continue reading &raquo;</a>
+            {% if about %}
+                {{ about|excerpt(200) }}
+                <a href='{{ about|link }}'>Continue reading &raquo;</a>
             {% else %}
 
                 {# fallback to dummy text #}

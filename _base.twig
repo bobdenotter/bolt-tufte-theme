@@ -2,26 +2,22 @@
 <head>
   <meta charset='utf-8'/>
   <title>
-      {% if Seo is defined %}
-        {{ seo.title() }}
-      {% else %}
-        {% if record.title is defined %}{{ record.title|striptags }} | {% endif %}
-        {{ config.get('general/sitename') }}
-        {% if record.title is not defined and config.get('general/payoff') %}
-          | {{ config.get('general/payoff') }}
-        {% endif %}
-      {% endif %}
+    {% if record.title is defined %}{{ record.title|striptags }} | {% endif %}
+    {{ config.get('general/sitename') }}
+    {% if record.title is not defined and config.get('general/payoff') %}
+      | {{ config.get('general/payoff') }}
+    {% endif %}
   </title>
 
-  {% if config.get('theme/body-font') != 'serif' %}
+  {% if theme.bodyfont != 'serif' %}
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&amp;subset=latin-ext' rel='stylesheet'>
   {% endif %}
   <link rel='stylesheet' href='{{ asset('css/tufte.css', 'theme') }}'/>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
 <body class='
-{#{%- if theme.bodyfont != 'serif' %}sans {% endif %}#}
-{#{% if theme.boxed|default(false) %}boxed-page {% endif -%}#}
+{%- if theme.bodyfont != 'serif' %}sans {% endif %}
+{% if theme.boxed|default(false) %}boxed-page {% endif -%}
 {% block bodyclass %}generic{% endblock %}
 '>
 
@@ -49,6 +45,15 @@
     <div class="navbar-menu" id="navMenu">
       <div class="navbar-end">
         {{ menu(template = 'partials/_sub_menu.twig') }}
+
+          {% if theme.search|default() %}
+          <div class="navbar-item">
+              <form method="get" action="{{ path('search') }}" id="searchform-inline" enctype="text/plain">
+                  <input type="search" value="{% if search is defined %}{{ search|escape }}{% endif %}" placeholder="{{ __('general.phrase.search-ellipsis') }}" name="search">
+              </form>
+          </div>
+          {% endif %}
+
       </div>
     </div>
   </div>
@@ -56,18 +61,19 @@
 
 {% if theme.boxed|default(false) %}<div class='boxed-page'>{% endif %}
 
-<div class='container grid'>
-    {% block container %}
-    {% endblock container %}
-</div>
+    <div class='container grid'>
+        {% block container %}
+        {% endblock container %}
+    </div>
 
-<footer>
-&mdash; <span>&#10087;</span> &mdash;
-</footer>
+    <footer>
+    &mdash; <span>&#10087;</span> &mdash;
+    </footer>
 
 {% if theme.boxed|default(false) %}</div>{% endif %}
 
-  <script src='{{ asset('javascript/tufte.js', 'theme') }}'></script>
+    <script src='{{ asset('javascript/jquery.min.js', 'theme') }}'></script>
+    <script src='{{ asset('javascript/tufte.js', 'theme') }}'></script>
 
 </body>
 </html>

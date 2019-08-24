@@ -1,7 +1,7 @@
 {
   "name": "bolt-tufte-theme",
   "description": "A Theme for Bolt, based on Edward Tufte's distinctive style.",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "license": "MIT",
   "private": false,
   "author": "Bob den Otter <bob@twokings.nl>",
@@ -15,25 +15,29 @@
   },
   "main": "gulpfile.js",
   "dependencies": {
-    "bulma": "^0.7.1",
-    "jquery": "^3.3.1",
+    "bulma": "^0.7.5",
+    "jquery": "^3.4.1",
     "magnific-popup": "^1.1.0",
-    "prismjs": "^1.15.0"
+    "prismjs": "^1.17.1"
   },
   "devDependencies": {
-    "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^5.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-cssnano": "^2.1.3",
-    "gulp-if": "^2.0.2",
-    "gulp-load-plugins": "^1.5.0",
-    "gulp-sass": "^4.0.1",
-    "gulp-sourcemaps": "^2.6.4",
-    "gulp-uglify": "^3.0.0",
-    "yargs": "^12.0.1"
+    "gulp-if": "^3.0.0",
+    "gulp-load-plugins": "^2.0.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "yargs": "^14.0.0"
   },
   "scripts": {
     "start": "gulp",
-    "build": "gulp sass"
-  }
+    "build": "gulp build"
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%"
+  ]
 }

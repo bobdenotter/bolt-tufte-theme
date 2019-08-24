@@ -1,6 +1,6 @@
 {% macro display_menu_item(item, loop) %}
 
-    {% if item.submenu is defined %}
+    {% if item.submenu %}
         {% set class = 'navbar-link' %}
         <div class="navbar-item has-dropdown is-hoverable">
     {% else %}
@@ -12,15 +12,13 @@
        {% if item.label is defined %}{{item.label}}{% else %} - {% endif %}
     </a>
 
-    {% if item.submenu is defined %}
-        <div class="navbar-dropdown">
-            {% for submenu in item.submenu %}
-                {{ _self.display_menu_item(submenu, loop) }}
-            {% endfor %}
-        </div>
-    {% endif %}
+    {% if item.submenu %}
+            <div class="navbar-dropdown">
+                {% for submenu in item.submenu %}
+                    {{ _self.display_menu_item(submenu, loop) }}
+                {% endfor %}
+            </div>
 
-    {% if item.submenu is defined %}
         </div>
     {% endif %}
 
@@ -29,11 +27,3 @@
 {% for item in menu %}
     {{ _self.display_menu_item(item, loop, 'navbar-link') }}
 {% endfor %}
-
-{% if theme.search|default() %}
-<div class="navbar-item">
-    <form method="get" action="{{ path('search') }}" id="searchform-inline" enctype="text/plain">
-        <input type="search" value="{% if search is defined %}{{ search|escape }}{% endif %}" placeholder="{{ __('general.phrase.search-ellipsis') }}" name="search">
-    </form>
-</div>
-{% endif %}

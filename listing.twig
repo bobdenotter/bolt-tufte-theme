@@ -6,7 +6,7 @@
 {% block container %}
     <header>
         <h1>
-            {% block title %}{{ contenttype }}{% endblock %}
+            {% block title %}{{ contenttype.name }}{% endblock %}
         </h1>
     </header>
 
@@ -19,13 +19,13 @@
             {{ macros.image(record|image, record, 'sidebar') }}
             {% endif %}
 
-            <h2><a href='{{ record.link() }}'>{{ record.title }}</a></h2>
+            <h2><a href='{{ record|link }}'>{{ record|title }}</a></h2>
 
             {% include 'partials/_recordfooter.twig' %}
 
-            {{ record.teaser|default('<p>' ~ record.excerpt(320) ~ '</p>')|raw }}
+            <p>{{ record|excerpt(320)|raw }}</p>
 
-            <p><a href='{{ record.link }}'>Continue reading &raquo;</a></p>
+            <p><a href='{{ record|link }}'>Continue reading &raquo;</a></p>
 
             <hr>
 
@@ -33,7 +33,7 @@
 
     {% endfor %}
 
-    {{ pager(records, template = 'helpers/_pager_bulma.html.twig') }}
+    {{ pager(records) }}
 
     </section>
 
