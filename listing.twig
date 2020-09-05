@@ -1,7 +1,7 @@
 {% extends '_base.twig' %}
 {% import 'partials/_macro.twig' as macros %}
 
-{% block bodyclass %}homepage{% endblock %}
+{% block bodyclass %}listing{% endblock %}
 
 {% block container %}
     <header>
@@ -30,7 +30,7 @@
 
             {% include 'partials/_recordfooter.twig' %}
 
-            <p>{{ record|excerpt(320)|raw }}</p>
+            {{ macros.wrap_paragraph(record|excerpt(320, false, searchTerm|default(''))) }}
 
             <p><a href='{{ record|link }}'>Continue reading &raquo;</a></p>
 

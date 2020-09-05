@@ -33,3 +33,16 @@
 
     {% endif %}
 {% endmacro %}
+
+
+{% macro wrap_paragraph(text, default_text) %}
+
+    {% set text = text|default(default_text) %}
+
+    {% if text and not (text starts with '<p' or text starts with '<span' or text starts with '<div') %}
+        {% set text = text|markdown %}
+    {% endif %}
+
+    {{ text|raw }}
+
+{% endmacro %}

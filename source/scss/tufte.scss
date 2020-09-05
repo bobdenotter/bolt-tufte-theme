@@ -3,13 +3,15 @@
 @import 'node_modules/bulma/bulma';
 @import 'magnific-popup/main';
 @import 'breakpointdebug';
+@import 'article_grid';
 
 @import 'node_modules/prismjs/themes/prism';
 @import 'node_modules/prismjs/plugins/line-numbers/prism-line-numbers';
 @import 'node_modules/prismjs/plugins/line-highlight/prism-line-highlight';
 
 // ---- Grid ------
-body.homepage .grid {
+body.homepage .grid,
+body.listing .grid {
   display: grid;
   grid-template-columns: 1% 2fr 1fr 1%;
   grid-template-rows: auto;
@@ -361,7 +363,7 @@ aside {
   color: lighten(desaturate($color-text-body, 50), 20);
 
   p, ol, ul {
-    font-size: 0.9rem !important;
+    font-size: 1.1rem !important;
     line-height: 1.6rem !important;
   }
 
@@ -459,7 +461,7 @@ ul li {
 blockquote {
 
   border-left: 5px solid #CCC;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   line-height: 1.9rem;
   font-style: italic;
   margin-left: 0;
@@ -470,6 +472,11 @@ blockquote {
     font-style: normal;
     text-align: right;
   }
+
+  p {
+    margin: 0;
+  }
+
 }
 
 samp {

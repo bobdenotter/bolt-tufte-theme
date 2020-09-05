@@ -1,9 +1,9 @@
 {# This file is inserted as the 'footer' of each listed record. #}
 {% if verbose|default() == true %}
 
-    {% if record.editlink() %}
+    {% if record|edit_link %}
         <p>
-            <a class="button" href='{{ record.editlink() }}'>Edit</a>
+            <a class="button" href='{{ record|edit_link }}'>Edit</a>
         </p>
     {% endif %}
 

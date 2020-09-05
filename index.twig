@@ -10,7 +10,7 @@
         </h1>
     </header>
 
-    {% setcontent records = 'entries/latest/6' allowpaging %}
+    {% setcontent records = 'entries' latest limit 6 %}
     {% set record = records|first %}
 
         <article class='content'>
@@ -23,7 +23,7 @@
             {{ macros.image(record|image, record, 'main') }}
             {% endif %}
 
-            {{ record.teaser|default('<p>' ~ record|excerpt(320) ~ '</p>') }}
+            {{ macros.wrap_paragraph(record.teaser, record|excerpt(320)) }}
 
             <p><a href='{{ record|link }}'>Continue reading &raquo;</a></p>
 
@@ -44,7 +44,7 @@
 
             {% include 'partials/_recordfooter.twig' %}
 
-            {{ record.teaser|default('<p>' ~ record|excerpt(320) ~ '</p>') }}
+            {{ macros.wrap_paragraph(record.teaser, record|excerpt(320)) }}
 
             <p><a href='{{ record|link }}'>Continue reading &raquo;</a></p>
 
@@ -54,7 +54,7 @@
 
     {% endfor %}
 
-{#    {{ pager(records, template = 'helpers/_pager_bulma.twig') }}#}
+    {{ pager(records, template = 'helpers/_pager_bulma.html.twig') }}
 
     </section>
 
@@ -63,17 +63,31 @@
         {% setcontent about = 'blocks/about' %}
         {% if about %}
             <h3>{{ about.title }}</h3>
-            {{ about.content }}
-            {% if about.contentlink is not empty %}
-                <a href='{{ about.contentlink }}'>Continue reading &raquo;</a>
+
+            {{ macros.wrap_paragraph(about.content, about|excerpt(320)) }}
+
+            {% set edit_link = about|edit_link %}
+            {% set content_link = about.contentlink|default(about|link) %}
+            {% if content_link or edit_link %}
+                <p>
+                    {%- if content_link %}
+                        <a href="{{ relative_path(content_link|e) }}">{{ __('general.phrase.read-more') }}</a>
+                    {% endif -%}
+                    {%- if edit_link %}
+                        / <a href="{{ edit_link }}">{{ __('general.phrase.edit') }}</a>
+                    {% endif -%}
+                </p>
             {% endif %}
+
         {% else %}
 
             {# otherwise we might have a 'page' with slug 'about'? #}
             {% setcontent about = 'page/about' %}
             {% if about %}
-                {{ about|excerpt(200) }}
-                <a href='{{ about|link }}'>Continue reading &raquo;</a>
+
+                {{ macros.wrap_paragraph(about.content, about|excerpt(320)) }}
+
+                <a href='{{ about|link }}'>{{ __('general.phrase.read-more') }}</a>
             {% else %}
 
                 {# fallback to dummy text #}
